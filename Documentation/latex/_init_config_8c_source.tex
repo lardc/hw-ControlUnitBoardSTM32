@@ -1,0 +1,78 @@
+\doxysubsection{Init\+Config.\+c}
+\hypertarget{_init_config_8c_source}{}\label{_init_config_8c_source}\index{Firmware/Source/Controller/InitConfig.c@{Firmware/Source/Controller/InitConfig.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}InitConfig.h"{}}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}Board.h"{}}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}SysConfig.h"{}}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}BCCIxParams.h"{}}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00006}00006\ \textcolor{comment}{//\ Functions}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00007}00007\ Boolean\ INITCFG\_ConfigSystemClock()}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00009}00009\ \ \ \ \ \textcolor{keywordflow}{return}\ RCC\_PLL\_HSE\_Config(QUARTZ\_FREQUENCY,\ PREDIV\_4,\ PLL\_14);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00010}00010\ \}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00011}00011\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00013}00013\ \textcolor{keywordtype}{void}\ INITCFG\_ConfigIO()}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00015}00015\ \ \ \ \ \textcolor{comment}{//\ Включение\ тактирования\ портов}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00016}00016\ \ \ \ \ RCC\_GPIO\_Clk\_EN(PORTA);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00017}00017\ \ \ \ \ RCC\_GPIO\_Clk\_EN(PORTB);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00018}00018\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00019}00019\ \ \ \ \ \textcolor{comment}{//\ Выходы}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00020}00020\ \ \ \ \ GPIO\_InitPushPullOutput(GPIO\_INT\_LED);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00021}00021\ \ \ \ \ GPIO\_InitPushPullOutput(GPIO\_INT\_FAN);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00022}00022\ \ \ \ \ GPIO\_InitPushPullOutput(GPIO\_LAMP\_GREEN);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00023}00023\ \ \ \ \ GPIO\_InitPushPullOutput(GPIO\_LAMP\_RED);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00024}00024\ \ \ \ \ GPIO\_InitPushPullOutput(GPIO\_PC\_SWITCH);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00025}00025\ \ \ \ \ \textcolor{comment}{//\ Входы}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00026}00026\ \ \ \ \ GPIO\_InitInput(GPIO\_EXT\_BUTTON,\ NoPull);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00028}00028\ \ \ \ \ \textcolor{comment}{//\ Альтернативные\ функции}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00029}00029\ \ \ \ \ GPIO\_InitAltFunction(GPIO\_ALT\_CAN\_RX,\ AltFn\_9);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00030}00030\ \ \ \ \ GPIO\_InitAltFunction(GPIO\_ALT\_CAN\_TX,\ AltFn\_9);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00031}00031\ \ \ \ \ GPIO\_InitAltFunction(GPIO\_ALT\_UART1\_RX,\ AltFn\_7);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00032}00032\ \ \ \ \ GPIO\_InitAltFunction(GPIO\_ALT\_UART1\_TX,\ AltFn\_7);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00033}00033\ \ \ \ \ GPIO\_InitAltFunction(GPIO\_ALT\_UART2\_RX,\ AltFn\_7);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00034}00034\ \ \ \ \ GPIO\_InitAltFunction(GPIO\_ALT\_UART2\_TX,\ AltFn\_7);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00035}00035\ \}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00036}00036\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00038}00038\ \textcolor{keywordtype}{void}\ INITCFG\_ConfigCAN()}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00039}00039\ \{}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00040}00040\ \ \ \ \ RCC\_CAN\_Clk\_EN(CAN\_1\_ClkEN);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00041}00041\ \ \ \ \ NCAN\_Init(SYSCLK,\ CAN\_BAUDRATE,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00042}00042\ \ \ \ \ NCAN\_FIFOInterrupt(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00043}00043\ \ \ \ \ NCAN\_FilterInit(0,\ CAN\_SLAVE\_FILTER\_ID,\ CAN\_SLAVE\_NID\_MASK);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00044}00044\ \ \ \ \ NCAN\_FilterInit(1,\ CAN\_MASTER\_FILTER\_ID,\ CAN\_MASTER\_NID\_MASK);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00045}00045\ \}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00046}00046\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00048}00048\ \textcolor{keywordtype}{void}\ INITCFG\_ConfigUART()}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00049}00049\ \{}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00050}00050\ \ \ \ \ USARTx\_Init(USART1,\ SYSCLK,\ USART\_BAUDRATE);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00051}00051\ \ \ \ \ USARTx\_RecieveInterrupt(USART1,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00053}00053\ \ \ \ \ USARTx\_Init(USART2,\ SYSCLK,\ USART\_BAUDRATE);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00054}00054\ \ \ \ \ USARTx\_RecieveInterrupt(USART2,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00056}00056\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00058}00058\ \textcolor{keywordtype}{void}\ INITCFG\_ConfigTimer7()}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00059}00059\ \{}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00060}00060\ \ \ \ \ TIM\_Clock\_En(TIM\_7);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00061}00061\ \ \ \ \ TIM\_Config(TIM7,\ SYSCLK,\ TIMER7\_uS);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00062}00062\ \ \ \ \ TIM\_Interupt(TIM7,\ 0,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00063}00063\ \ \ \ \ TIM\_Start(TIM7);}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00064}00064\ \}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00065}00065\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00067}00067\ \textcolor{keywordtype}{void}\ INITCFG\_ConfigWatchDog()}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00068}00068\ \{}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00069}00069\ \ \ \ \ IWDG\_Config();}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00070}00070\ \ \ \ \ IWDG\_ConfigureSlowUpdate();}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00071}00071\ \}}
+\DoxyCodeLine{\Hypertarget{_init_config_8c_source_l00072}00072\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+
+\end{DoxyCode}

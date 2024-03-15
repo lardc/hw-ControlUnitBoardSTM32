@@ -1,0 +1,49 @@
+\doxysubsection{Firmware/\+Source/\+Controller/\+Controller.c File Reference}
+\hypertarget{_controller_8c}{}\label{_controller_8c}\index{Firmware/Source/Controller/Controller.c@{Firmware/Source/Controller/Controller.c}}
+
+
+Logic controller.  
+
+
+\doxysubsubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_controller_8c_ae1ed21881dce894cfa57786e114397a7}\label{_controller_8c_ae1ed21881dce894cfa57786e114397a7} 
+Boolean {\bfseries CONTROL\+\_\+\+Dispatch\+Action} (Int16U Action\+ID, p\+Int16U User\+Error)
+\item 
+\Hypertarget{_controller_8c_aa8fad27f32932cea7ea7b8c71d52079e}\label{_controller_8c_aa8fad27f32932cea7ea7b8c71d52079e} 
+void {\bfseries CONTROL\+\_\+\+Idle} ()
+\item 
+\Hypertarget{_controller_8c_acc3f5705924d3a58155fa5b705a75a50}\label{_controller_8c_acc3f5705924d3a58155fa5b705a75a50} 
+void {\bfseries CONTROL\+\_\+\+Update\+Watch\+Dog} ()
+\item 
+void \mbox{\hyperlink{_controller_8c_a277cd0c53da6e3064bcdf5742a903be1}{CONTROL\+\_\+\+Init}} ()
+\begin{DoxyCompactList}\small\item\em Initialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_controller_8c_aa5592572406dedaee74ed952f6269ab6}\label{_controller_8c_aa5592572406dedaee74ed952f6269ab6} 
+volatile Int64U {\bfseries CONTROL\+\_\+\+Time\+Counter} = 0
+\item 
+\Hypertarget{_controller_8c_ae4e40755c0fd7d7266aa01a8746646d5}\label{_controller_8c_ae4e40755c0fd7d7266aa01a8746646d5} 
+Boolean {\bfseries Cycle\+Active} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+Logic controller. 
+
+
+
+\doxysubsubsection{Function Documentation}
+\Hypertarget{_controller_8c_a277cd0c53da6e3064bcdf5742a903be1}\label{_controller_8c_a277cd0c53da6e3064bcdf5742a903be1} 
+\index{Controller.c@{Controller.c}!CONTROL\_Init@{CONTROL\_Init}}
+\index{CONTROL\_Init@{CONTROL\_Init}!Controller.c@{Controller.c}}
+\doxyparagraph{\texorpdfstring{CONTROL\_Init()}{CONTROL\_Init()}}
+{\footnotesize\ttfamily void CONTROL\+\_\+\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialization. 
+
+xdxdxdxd 

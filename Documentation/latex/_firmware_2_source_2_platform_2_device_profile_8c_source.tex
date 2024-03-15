@@ -1,0 +1,200 @@
+\doxysubsection{Device\+Profile.\+c}
+\hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source}{}\label{_firmware_2_source_2_platform_2_device_profile_8c_source}\index{Firmware/Source/Platform/DeviceProfile.c@{Firmware/Source/Platform/DeviceProfile.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00001}00001\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00002}00002\ \textcolor{comment}{//\ Device\ profile}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00003}00003\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00005}00005\ \textcolor{comment}{//\ Header}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}DeviceProfile.h"{}}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00007}00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00008}00008\ \textcolor{comment}{//\ Includes}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}SysConfig.h"{}}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}Global.h"{}}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}DataTable.h"{}}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_controller_8h}{Controller.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}Constraints.h"{}}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}ZwNCAN.h"{}}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}ZwUSART.h"{}}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00017}00017\ \textcolor{comment}{//\ Types}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00018}00018\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00019}00019\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_\_FEPState}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00021}00021\ \ \ \ \ Int16U\ Size;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00022}00022\ \ \ \ \ Int16U\ ReadCounter;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00023}00023\ \ \ \ \ Int16U\ WriteCounter;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00024}00024\ \ \ \ \ Int16U\ LastReadCounter;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00025}00025\ \ \ \ \ pInt16U\ pDataCounter;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{float}*\ Data;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00027}00027\ \}\ FEPState,\ *pFEPState;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00028}00028\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00029}00029\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_\_EPState}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00030}00030\ \{}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00031}00031\ \ \ \ \ Int16U\ Size;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00032}00032\ \ \ \ \ Int16U\ ReadCounter;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00033}00033\ \ \ \ \ Int16U\ WriteCounter;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00034}00034\ \ \ \ \ Int16U\ LastReadCounter;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00035}00035\ \ \ \ \ pInt16U\ pDataCounter;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00036}00036\ \ \ \ \ pInt16U\ Data;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00037}00037\ \}\ EPState,\ *pEPState;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00038}00038\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00039}00039\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_\_EPStates}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00040}00040\ \{}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00041}00041\ \ \ \ \ EPState\ EPs[EP\_COUNT];}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00042}00042\ \ \ \ \ EPState\ WriteEPs[EP\_WRITE\_COUNT];}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00043}00043\ \ \ \ \ FEPState\ FEPs[FEP\_COUNT];}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00044}00044\ \}\ EPStates,\ *pEPStates;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00046}00046\ \textcolor{comment}{//\ Variables}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00047}00047\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00048}00048\ SCCI\_Interface\ DEVICE\_USB\_UART1\_Interface,\ DEVICE\_USB\_UART2\_Interface;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00049}00049\ BCCI\_Interface\ DEVICE\_CAN\_Interface;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00050}00050\ BCCIM\_Interface\ MASTER\_DEVICE\_CAN\_Interface;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00051}00051\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00052}00052\ \textcolor{keyword}{static}\ SCCI\_IOConfig\ USB\_UART1\_IOConfig,\ USB\_UART2\_IOConfig;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00053}00053\ \textcolor{keyword}{static}\ BCCI\_IOConfig\ CAN\_IOConfig;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00054}00054\ \textcolor{keyword}{static}\ xCCI\_ServiceConfig\ X\_ServiceConfig;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00055}00055\ \textcolor{keyword}{static}\ EPStates\ DummyEPState;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00056}00056\ \textcolor{keyword}{static}\ xCCI\_FUNC\_CallbackAction\ ControllerDispatchFunction;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00057}00057\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00058}00058\ \textcolor{keyword}{static}\ Boolean*\ MaskChangesFlag;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00060}00060\ \textcolor{comment}{//\ Forward\ functions}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00061}00061\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00062}00062\ \textcolor{keyword}{static}\ Boolean\ DEVPROFILE\_Validate16(Int16U\ Address,\ Int16U\ Data);}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00063}00063\ \textcolor{keyword}{static}\ Boolean\ DEVPROFILE\_ValidateFloat(Int16U\ Address,\ \textcolor{keywordtype}{float}\ Data,\ \textcolor{keywordtype}{float}*\ LowLimit,\ \textcolor{keywordtype}{float}*\ HighLimit);}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00064}00064\ \textcolor{keyword}{static}\ Boolean\ DEVPROFILE\_DispatchAction(Int16U\ ActionID,\ pInt16U\ UserError);}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00065}00065\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ DEVPROFILE\_FillWRPartDefault();}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00067}00067\ \textcolor{comment}{//\ Functions}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00068}00068\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00069}00069\ \textcolor{keywordtype}{void}\ DEVPROFILE\_Init(xCCI\_FUNC\_CallbackAction\ SpecializedDispatch,\ Boolean*\ MaskChanges)}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00070}00070\ \{}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00071}00071\ \ \ \ \ \textcolor{comment}{//\ Save\ values}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00072}00072\ \ \ \ \ ControllerDispatchFunction\ =\ SpecializedDispatch;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00073}00073\ \ \ \ \ MaskChangesFlag\ =\ MaskChanges;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00074}00074\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00075}00075\ \ \ \ \ \textcolor{comment}{//\ Init\ interface}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00076}00076\ \ \ \ \ USB\_UART1\_IOConfig.IO\_SendArray16\ =\ \&USART1\_SendArray16;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00077}00077\ \ \ \ \ USB\_UART1\_IOConfig.IO\_ReceiveArray16\ =\ \&USART1\_ReceiveArray16;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00078}00078\ \ \ \ \ USB\_UART1\_IOConfig.IO\_GetBytesToReceive\ =\ \&USART1\_GetBytesToReceive;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00079}00079\ \ \ \ \ USB\_UART1\_IOConfig.IO\_ReceiveByte\ =\ \&USART1\_ReceiveChar;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00081}00081\ \ \ \ \ USB\_UART2\_IOConfig.IO\_SendArray16\ =\ \&USART2\_SendArray16;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00082}00082\ \ \ \ \ USB\_UART2\_IOConfig.IO\_ReceiveArray16\ =\ \&USART2\_ReceiveArray16;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00083}00083\ \ \ \ \ USB\_UART2\_IOConfig.IO\_GetBytesToReceive\ =\ \&USART2\_GetBytesToReceive;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00084}00084\ \ \ \ \ USB\_UART2\_IOConfig.IO\_ReceiveByte\ =\ \&USART2\_ReceiveChar;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00086}00086\ \ \ \ \ CAN\_IOConfig.IO\_SendMessage\ =\ \&NCAN\_SendMessage;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00087}00087\ \ \ \ \ CAN\_IOConfig.IO\_SendMessageEx\ =\ \&NCAN\_SendMessageEx;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00088}00088\ \ \ \ \ CAN\_IOConfig.IO\_GetMessage\ =\ \&NCAN\_GetMessage;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00089}00089\ \ \ \ \ CAN\_IOConfig.IO\_IsMessageReceived\ =\ \&NCAN\_IsMessageReceived;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00090}00090\ \ \ \ \ CAN\_IOConfig.IO\_ConfigMailbox\ =\ \&NCAN\_ConfigMailbox;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00091}00091\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00092}00092\ \ \ \ \ \textcolor{comment}{//\ Init\ service}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00093}00093\ \ \ \ \ X\_ServiceConfig.UserActionCallback\ =\ \&DEVPROFILE\_DispatchAction;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00094}00094\ \ \ \ \ X\_ServiceConfig.ValidateCallback16\ =\ \&DEVPROFILE\_Validate16;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00095}00095\ \ \ \ \ X\_ServiceConfig.ValidateCallbackFloat\ =\ \&DEVPROFILE\_ValidateFloat;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00096}00096\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00097}00097\ \ \ \ \ \textcolor{comment}{//\ Init\ interface\ driver}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00098}00098\ \ \ \ \ SCCI\_Init(\&DEVICE\_USB\_UART1\_Interface,\ \&USB\_UART1\_IOConfig,\ \&X\_ServiceConfig,\ (pInt16U)DataTable,\ DATA\_TABLE\_SIZE,}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ xCCI\_TIMEOUT\_TICKS,\ \&DummyEPState);}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00100}00100\ \ \ \ \ SCCI\_Init(\&DEVICE\_USB\_UART2\_Interface,\ \&USB\_UART2\_IOConfig,\ \&X\_ServiceConfig,\ (pInt16U)DataTable,\ DATA\_TABLE\_SIZE,}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ xCCI\_TIMEOUT\_TICKS,\ \&DummyEPState);}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00102}00102\ \ \ \ \ BCCI\_Init(\&DEVICE\_CAN\_Interface,\ \&CAN\_IOConfig,\ \&X\_ServiceConfig,\ (pInt16U)DataTable,\ DATA\_TABLE\_SIZE,\ \&DummyEPState);}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00103}00103\ \ \ \ \ BCCIM\_Init(\&MASTER\_DEVICE\_CAN\_Interface,\ \&CAN\_IOConfig,\ xCCI\_TIMEOUT\_TICKS,\ \&CONTROL\_TimeCounter);}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00105}00105\ \ \ \ \ \textcolor{comment}{//\ Set\ write\ protection}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00106}00106\ \ \ \ \ SCCI\_AddProtectedArea(\&DEVICE\_USB\_UART1\_Interface,\ DATA\_TABLE\_WP\_START,\ DATA\_TABLE\_SIZE\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00107}00107\ \ \ \ \ SCCI\_AddProtectedArea(\&DEVICE\_USB\_UART2\_Interface,\ DATA\_TABLE\_WP\_START,\ DATA\_TABLE\_SIZE\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00108}00108\ \ \ \ \ BCCI\_AddProtectedArea(\&DEVICE\_CAN\_Interface,\ DATA\_TABLE\_WP\_START,\ DATA\_TABLE\_SIZE\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00109}00109\ \}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00110}00110\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00112}00112\ \textcolor{keywordtype}{void}\ DEVPROFILE\_ProcessRequests()}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00113}00113\ \{}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00114}00114\ \ \ \ \ \textcolor{comment}{//\ Handle\ interface\ requests}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00115}00115\ \ \ \ \ SCCI\_Process(\&DEVICE\_USB\_UART1\_Interface,\ CONTROL\_TimeCounter,\ *MaskChangesFlag);}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00116}00116\ \ \ \ \ SCCI\_Process(\&DEVICE\_USB\_UART2\_Interface,\ CONTROL\_TimeCounter,\ *MaskChangesFlag);}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00118}00118\ \ \ \ \ \textcolor{comment}{//\ Handle\ interface\ requests}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00119}00119\ \ \ \ \ BCCI\_Process(\&DEVICE\_CAN\_Interface,\ *MaskChangesFlag);}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00120}00120\ \}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00121}00121\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00123}00123\ \textcolor{keywordtype}{void}\ DEVPROFILE\_ResetControlSection()}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00124}00124\ \{}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00125}00125\ \ \ \ \ DT\_ResetWRPart(\&DEVPROFILE\_FillWRPartDefault);}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00126}00126\ \}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00127}00127\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00129}00129\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ DEVPROFILE\_FillWRPartDefault()}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00130}00130\ \{}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00131}00131\ \ \ \ \ \textcolor{keywordflow}{for}(Int16U\ i\ =\ DATA\_TABLE\_WR\_START;\ i\ <\ DATA\_TABLE\_WP\_START;\ ++i)}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ DataTable[i]\ =\ Constraint[i].Default;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00133}00133\ \}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00134}00134\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00136}00136\ \textcolor{keywordtype}{void}\ DEVPROFILE\_FillNVPartDefault(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00137}00137\ \{}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00138}00138\ \ \ \ \ \textcolor{keywordflow}{for}(Int16U\ i\ =\ 0;\ i\ <\ DATA\_TABLE\_NV\_SIZE;\ ++i)}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ DataTable[i]\ =\ Constraint[i].Default;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00140}00140\ \}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00141}00141\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00143}00143\ \textcolor{keyword}{static}\ Boolean\ DEVPROFILE\_Validate16(Int16U\ Address,\ Int16U\ Data)}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00144}00144\ \{}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00145}00145\ \ \ \ \ \textcolor{keywordflow}{if}(Address\ <\ DATA\_TABLE\_WP\_START)}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (Constraint[Address].Min\ <=\ Data)\ \&\&\ (Data\ <=\ Constraint[Address].Max);}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00147}00147\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FALSE;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00149}00149\ \}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00150}00150\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00152}00152\ \textcolor{keyword}{static}\ Boolean\ DEVPROFILE\_ValidateFloat(Int16U\ Address,\ \textcolor{keywordtype}{float}\ Data,\ \textcolor{keywordtype}{float}*\ LowLimit,\ \textcolor{keywordtype}{float}*\ HighLimit)}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00153}00153\ \{}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00154}00154\ \ \ \ \ \textcolor{keywordflow}{if}(LowLimit\ \&\&\ HighLimit)}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00155}00155\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ *LowLimit\ =\ Constraint[Address].Min;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ *HighLimit\ =\ Constraint[Address].Max;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TRUE;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00160}00160\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00161}00161\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(Address\ <\ DATA\_TABLE\_WP\_START)}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (Constraint[Address].Min\ <=\ Data)\ \&\&\ (Data\ <=\ Constraint[Address].Max);}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00163}00163\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FALSE;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00165}00165\ \}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00166}00166\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00168}00168\ \textcolor{keyword}{static}\ Boolean\ DEVPROFILE\_DispatchAction(Int16U\ ActionID,\ pInt16U\ UserError)}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00169}00169\ \{}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00170}00170\ \ \ \ \ \textcolor{keywordflow}{switch}\ (ActionID)}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00171}00171\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ACT\_SAVE\_TO\_ROM:}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ DT\_SaveNVPartToEPROM();}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ACT\_RESTORE\_FROM\_ROM:}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ DT\_RestoreNVPartFromEPROM();}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ACT\_RESET\_TO\_DEFAULT:}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ DT\_ResetNVPart(\&DEVPROFILE\_FillNVPartDefault);}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00184}00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ACT\_BOOT\_LOADER\_REQUEST:}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ BOOT\_LOADER\_VARIABLE\ =\ BOOT\_LOADER\_REQUEST;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (ControllerDispatchFunction)\ ?\ ControllerDispatchFunction(ActionID,\ UserError)\ :\ FALSE;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00190}00190\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00191}00191\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00192}00192\ \ \ \ \ \textcolor{keywordflow}{return}\ TRUE;}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00193}00193\ \}}
+\DoxyCodeLine{\Hypertarget{_firmware_2_source_2_platform_2_device_profile_8c_source_l00194}00194\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+
+\end{DoxyCode}

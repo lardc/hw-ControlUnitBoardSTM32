@@ -1,0 +1,37 @@
+\doxysubsection{BCCIx\+Params.\+h}
+\hypertarget{_firmware_2_source_2_b_c_c_ix_params_8h_source}{}\label{_firmware_2_source_2_b_c_c_ix_params_8h_source}\index{Firmware/Source/BCCIxParams.h@{Firmware/Source/BCCIxParams.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Parameters\ of\ BCCI\ interface}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ \_\_BCCI\_PARAMS\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ \_\_BCCI\_PARAMS\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}xCCIParams.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ Маска\ поля\ функции}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ CAN\_FUNC\_MASK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x000003FF}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ Конфигурация\ Slave}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ CAN\_SLAVE\_NID\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Node\ ID\ устройства}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ CAN\_SLAVE\_NID\_MASK\ \ \ \ \ \ \ \ \ \ 0x0003FC00\ \ \ \ \ \ }\textcolor{comment}{//\ Маска\ Slave\ node\ ID}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ CAN\_SLAVE\_NID\_MPY\ \ \ \ \ \ \ \ \ \ \ 10\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Смещение\ адреса\ Slave}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ Конфигурация\ Master}}
+\DoxyCodeLine{00021\ \textcolor{comment}{//}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ CAN\_MASTER\_NID\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Node\ ID\ устройства}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ CAN\_MASTER\_NID\_MASK\ \ \ \ \ \ \ \ \ 0x03FC0000\ \ \ \ \ \ }\textcolor{comment}{//\ Маска\ Master\ node\ ID}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ CAN\_MASTER\_NID\_MPY\ \ \ \ \ \ \ \ \ \ 18\ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Смещение\ адреса\ Master}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ CAN\ фильтр}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ CAN\_SLAVE\_FILTER\_ID\ \ \ \ \ \ \ \ \ (CAN\_SLAVE\_NID\ <<\ CAN\_SLAVE\_NID\_MPY)}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ CAN\_MASTER\_FILTER\_ID\ \ \ \ \ \ \ \ (CAN\_MASTER\_NID\ <<\ CAN\_MASTER\_NID\_MPY)}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_BCCI\_PARAMS\_H}}
+
+\end{DoxyCode}

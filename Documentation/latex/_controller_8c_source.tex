@@ -1,0 +1,101 @@
+\doxysubsection{Controller.\+c}
+\hypertarget{_controller_8c_source}{}\label{_controller_8c_source}\index{Firmware/Source/Controller/Controller.c@{Firmware/Source/Controller/Controller.c}}
+\mbox{\hyperlink{_controller_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00001}00001\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00002}00002\ \textcolor{comment}{//\ Controller\ logic}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00003}00003\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00008}00008\ \textcolor{comment}{//\ Header}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_controller_8h}{Controller.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00010}00010\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00011}00011\ \textcolor{comment}{//\ Includes}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}SysConfig.h"{}}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}Board.h"{}}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}DeviceObjectDictionary.h"{}}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}DataTable.h"{}}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}DeviceProfile.h"{}}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}Interrupts.h"{}}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}BCCIxParams.h"{}}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}DebugActions.h"{}}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}LowLevel.h"{}}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00022}00022\ \textcolor{comment}{//\ Variables}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00023}00023\ \textcolor{keyword}{volatile}\ Int64U\ CONTROL\_TimeCounter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00024}00024\ Boolean\ CycleActive\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00026}00026\ \textcolor{comment}{//\ Forward\ functions}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00027}00027\ Boolean\ CONTROL\_DispatchAction(Int16U\ ActionID,\ pInt16U\ UserError);}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00028}00028\ \textcolor{keywordtype}{void}\ CONTROL\_Idle();}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00029}00029\ \textcolor{keywordtype}{void}\ CONTROL\_UpdateWatchDog();}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00030}00030\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_controller_8c_a277cd0c53da6e3064bcdf5742a903be1}{CONTROL\_Init}}();}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00032}00032\ \textcolor{comment}{//\ Functions}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00037}\mbox{\hyperlink{_controller_8c_a277cd0c53da6e3064bcdf5742a903be1}{00037}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_controller_8c_a277cd0c53da6e3064bcdf5742a903be1}{CONTROL\_Init}}()}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00038}00038\ \{}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ Init\ data\ table}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00040}00040\ \ \ \ \ \mbox{\hyperlink{struct_____e_p_r_o_m_service_config}{EPROMServiceConfig}}\ EPROMService\ =\ \{(FUNC\_EPROM\_WriteValues)\&NFLASH\_WriteDT,\ (FUNC\_EPROM\_ReadValues)\&NFLASH\_ReadDT\};}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00041}00041\ \ \ \ \ DT\_Init(EPROMService,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00042}00042\ \ \ \ \ DT\_SaveFirmwareInfo(CAN\_SLAVE\_NID,\ CAN\_MASTER\_NID);}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00043}00043\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00044}00044\ \ \ \ \ \textcolor{comment}{//\ Device\ profile\ initialization}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00045}00045\ \ \ \ \ DEVPROFILE\_Init(\&CONTROL\_DispatchAction,\ \&CycleActive);}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00046}00046\ \ \ \ \ DEVPROFILE\_ResetControlSection();}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00047}00047\ \ \ \ \ DataTable[REG\_MME\_CODE]\ =\ MME\_CODE;}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00048}00048\ \}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00049}00049\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00051}00051\ \textcolor{keywordtype}{void}\ CONTROL\_Idle()}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00052}00052\ \{}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00053}00053\ \ \ \ \ \textcolor{comment}{//\ Управление\ индикаторами\ индикатором}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00054}00054\ \ \ \ \ LL\_LampGreen(DataTable[REG\_LAMP\_GREEN]);}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00055}00055\ \ \ \ \ LL\_LampRed(DataTable[REG\_LAMP\_RED]);}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00057}00057\ \ \ \ \ \textcolor{comment}{//\ Управление\ вентилятором}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00058}00058\ \ \ \ \ LL\_Fan(DataTable[REG\_INT\_FAN]);}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00060}00060\ \ \ \ \ \textcolor{comment}{//\ Состояние\ внешней\ кнопки}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00061}00061\ \ \ \ \ DataTable[REG\_EXT\_BUTTON]\ =\ LL\_ExternalButton()\ ?\ 0\ :\ 1;}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00063}00063\ \ \ \ \ DEVPROFILE\_ProcessRequests();}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00064}00064\ \ \ \ \ CONTROL\_UpdateWatchDog();}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00065}00065\ \}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00066}00066\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00068}00068\ Boolean\ CONTROL\_DispatchAction(Int16U\ ActionID,\ pInt16U\ UserError)}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00069}00069\ \{}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{switch}(ActionID)}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00071}00071\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ACT\_DIAG\_INT\_FAN:}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ DBGACT\_Fan();}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ACT\_DIAG\_GREEN\_LED:}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ DBGACT\_LampGreen();}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ACT\_DIAG\_RED\_LED:}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ DBGACT\_LampRed();}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ACT\_DIAG\_PC\_SWITCH:}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ DBGACT\_SwitchPC();}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00090}00090\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00092}00092\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00093}00093\ \}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00094}00094\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00096}00096\ \textcolor{keywordtype}{void}\ CONTROL\_UpdateWatchDog()}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00097}00097\ \{}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00098}00098\ \ \ \ \ \textcolor{keywordflow}{if}(BOOT\_LOADER\_VARIABLE\ !=\ BOOT\_LOADER\_REQUEST)}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ IWDG\_Refresh();}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00100}00100\ \}}
+\DoxyCodeLine{\Hypertarget{_controller_8c_source_l00101}00101\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+
+\end{DoxyCode}

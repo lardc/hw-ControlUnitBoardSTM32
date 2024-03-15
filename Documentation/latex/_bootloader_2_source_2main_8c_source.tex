@@ -1,0 +1,121 @@
+\doxysubsection{main.\+c}
+\hypertarget{_bootloader_2_source_2main_8c_source}{}\label{_bootloader_2_source_2main_8c_source}\index{Bootloader/Source/main.c@{Bootloader/Source/main.c}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00001}00001\ \textcolor{comment}{//\ Include}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00002}00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}Global.h"{}}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_controller_8h}{Controller.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}Interrupts.h"{}}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}SysConfig.h"{}}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}BoardConfig.h"{}}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}BCCIxParams.h"{}}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00010}00010\ \textcolor{comment}{//\ Forward\ functions}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00011}00011\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00012}00012\ \textcolor{keywordtype}{void}\ ConfigSysClk();}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00013}00013\ \textcolor{keywordtype}{void}\ ConfigGPIO();}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00014}00014\ \textcolor{keywordtype}{void}\ ConfigCAN();}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00015}00015\ \textcolor{keywordtype}{void}\ ConfigUART();}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00016}00016\ \textcolor{keywordtype}{void}\ ConfigTimer2();}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00017}00017\ \textcolor{keywordtype}{void}\ ConfigWatchDog();}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00019}00019\ \textcolor{comment}{//\ Functions}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00020}00020\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00021}00021\ \textcolor{keywordtype}{int}\ main()}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00023}00023\ \ \ \ \ \textcolor{comment}{//\ Set\ request\ flag\ if\ firmware\ update\ is\ required}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{if}(*ProgramAddressStart\ ==\ 0xFFFFFFFF\ ||\ BOOT\_LOADER\_VARIABLE\ ==\ BOOT\_LOADER\_REQUEST)}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00025}00025\ \ \ \ \ \ \ \ \ WaitForFWUpload\ =\ TRUE;}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00026}00026\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00027}00027\ \ \ \ \ \textcolor{comment}{//\ Init\ peripherals}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00028}00028\ \ \ \ \ ConfigSysClk();}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00029}00029\ \ \ \ \ ConfigGPIO();}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00030}00030\ \ \ \ \ ConfigCAN();}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00031}00031\ \ \ \ \ ConfigUART();}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00032}00032\ \ \ \ \ ConfigTimer2();}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00033}00033\ \ \ \ \ ConfigWatchDog();}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00034}00034\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//\ Init\ controller}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00036}00036\ \ \ \ \ \mbox{\hyperlink{_controller_8c_a277cd0c53da6e3064bcdf5742a903be1}{CONTROL\_Init}}();}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00037}00037\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//\ Infinite\ cycle}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{while}(\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ CONTROL\_Idle();}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00041}00041\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00044}00044\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00046}00046\ \textcolor{keywordtype}{void}\ ConfigSysClk()}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00047}00047\ \{}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00048}00048\ \ \ \ \ RCC\_PLL\_HSE\_Config(QUARTZ\_FREQUENCY,\ PREDIV\_4,\ PLL\_14);}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00049}00049\ \}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00050}00050\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00052}00052\ \textcolor{keywordtype}{void}\ ConfigGPIO()}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00053}00053\ \{}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00054}00054\ \ \ \ \ \textcolor{comment}{//\ Включение\ тактирования\ портов}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00055}00055\ \ \ \ \ RCC\_GPIO\_Clk\_EN(PORTA);}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00056}00056\ \ \ \ \ RCC\_GPIO\_Clk\_EN(PORTB);}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00057}00057\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00058}00058\ \ \ \ \ \textcolor{comment}{//Выходы}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00059}00059\ \ \ \ \ GPIO\_Config(LED\_BLINK\_PORT,\ LED\_BLINK\_PIN,\ Output,\ PushPull,\ HighSpeed,\ NoPull);}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00060}00060\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00061}00061\ \ \ \ \ \textcolor{comment}{//Альтернативные\ функции\ портов}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00062}00062\ \ \ \ \ GPIO\_Config(GPIOA,\ Pin\_9,\ AltFn,\ PushPull,\ HighSpeed,\ NoPull);\ \textcolor{comment}{//PA9(USART1\ TX)}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00063}00063\ \ \ \ \ GPIO\_AltFn(GPIOA,\ Pin\_9,\ AltFn\_7);}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00064}00064\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00065}00065\ \ \ \ \ GPIO\_Config(GPIOA,\ Pin\_10,\ AltFn,\ PushPull,\ HighSpeed,\ NoPull);\ \textcolor{comment}{//PA10(USART1\ RX)}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00066}00066\ \ \ \ \ GPIO\_AltFn(GPIOA,\ Pin\_10,\ AltFn\_7);}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00067}00067\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00068}00068\ \ \ \ \ GPIO\_Config(GPIOA,\ Pin\_11,\ AltFn,\ PushPull,\ HighSpeed,\ NoPull);\ \textcolor{comment}{//PA11(CAN\ RX)}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00069}00069\ \ \ \ \ GPIO\_AltFn(GPIOA,\ Pin\_11,\ AltFn\_9);}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00070}00070\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00071}00071\ \ \ \ \ GPIO\_Config(GPIOA,\ Pin\_12,\ AltFn,\ PushPull,\ HighSpeed,\ NoPull);\ \textcolor{comment}{//PA12(CAN\ TX)}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00072}00072\ \ \ \ \ GPIO\_AltFn(GPIOA,\ Pin\_12,\ AltFn\_9);}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00073}00073\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00074}00074\ \ \ \ \ GPIO\_Config(GPIOB,\ Pin\_3,\ AltFn,\ PushPull,\ HighSpeed,\ NoPull);\ \textcolor{comment}{//PB3(USART2\ TX)}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00075}00075\ \ \ \ \ GPIO\_AltFn(GPIOB,\ Pin\_3,\ AltFn\_7);}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00077}00077\ \ \ \ \ GPIO\_Config(GPIOB,\ Pin\_4,\ AltFn,\ PushPull,\ HighSpeed,\ NoPull);\ \textcolor{comment}{//PB4(USART2\ RX)}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00078}00078\ \ \ \ \ GPIO\_AltFn(GPIOB,\ Pin\_4,\ AltFn\_7);}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00079}00079\ \}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00080}00080\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00082}00082\ \textcolor{keywordtype}{void}\ ConfigCAN()}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00083}00083\ \{}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00084}00084\ \ \ \ \ RCC\_CAN\_Clk\_EN(CAN\_1\_ClkEN);}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00085}00085\ \ \ \ \ NCAN\_Init(SYSCLK,\ CAN\_BAUDRATE,\ FALSE);}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00086}00086\ \ \ \ \ NCAN\_FIFOInterrupt(TRUE);}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00087}00087\ \ \ \ \ NCAN\_FilterInit(0,\ CAN\_SLAVE\_FILTER\_ID,\ CAN\_SLAVE\_NID\_MASK);}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00088}00088\ \}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00089}00089\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00091}00091\ \textcolor{keywordtype}{void}\ ConfigUART()}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00092}00092\ \{}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00093}00093\ \ \ \ \ USARTx\_Init(USART1,\ SYSCLK,\ USART\_BAUDRATE);}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00094}00094\ \ \ \ \ USARTx\_RecieveInterrupt(USART1,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00096}00096\ \ \ \ \ USARTx\_Init(USART2,\ SYSCLK,\ USART\_BAUDRATE);}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00097}00097\ \ \ \ \ USARTx\_RecieveInterrupt(USART2,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00098}00098\ \}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00099}00099\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00101}00101\ \textcolor{keywordtype}{void}\ ConfigTimer2()}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00102}00102\ \{}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00103}00103\ \ \ \ \ TIM\_Clock\_En(TIM\_2);}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00104}00104\ \ \ \ \ TIM\_Config(TIM2,\ SYSCLK,\ TIMER2\_uS);}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00105}00105\ \ \ \ \ TIM\_Interupt(TIM2,\ 0,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00106}00106\ \ \ \ \ TIM\_Start(TIM2);}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00107}00107\ \}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00108}00108\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00110}00110\ \textcolor{keywordtype}{void}\ ConfigWatchDog()}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00111}00111\ \{}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00112}00112\ \ \ \ \ IWDG\_Config();}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00113}00113\ \ \ \ \ IWDG\_ConfigureFastUpdate();}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00114}00114\ \}}
+\DoxyCodeLine{\Hypertarget{_bootloader_2_source_2main_8c_source_l00115}00115\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+
+\end{DoxyCode}

@@ -1,0 +1,50 @@
+\doxysubsection{Device\+Object\+Dictionary.\+h}
+\hypertarget{_device_object_dictionary_8h_source}{}\label{_device_object_dictionary_8h_source}\index{Firmware/Source/Platform/DeviceObjectDictionary.h@{Firmware/Source/Platform/DeviceObjectDictionary.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ \_\_DEV\_OBJ\_DIC\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ \_\_DEV\_OBJ\_DIC\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Commands}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ ACT\_DIAG\_INT\_FAN\ \ \ \ \ \ \ \ \ \ \ \ 10\ \ }\textcolor{comment}{//\ Проверка\ вентилятора}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ ACT\_DIAG\_GREEN\_LED\ \ \ \ \ \ \ \ \ \ 11\ \ }\textcolor{comment}{//\ Проверка\ зеленого\ индикатора}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ ACT\_DIAG\_RED\_LED\ \ \ \ \ \ \ \ \ \ \ \ 12\ \ }\textcolor{comment}{//\ Проверка\ красного\ индикатора}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ ACT\_DIAG\_PC\_SWITCH\ \ \ \ \ \ \ \ \ \ 13\ \ }\textcolor{comment}{//\ Включение\ ПК}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ ACT\_SAVE\_TO\_ROM\ \ \ \ \ \ \ \ \ \ \ \ \ 200\ }\textcolor{comment}{//\ Сохранение\ пользовательских\ данных\ во\ FLASH\ процессора}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ ACT\_RESTORE\_FROM\_ROM\ \ \ \ \ \ \ \ 201\ }\textcolor{comment}{//\ Восстановление\ данных\ из\ FLASH}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ ACT\_RESET\_TO\_DEFAULT\ \ \ \ \ \ \ \ 202\ }\textcolor{comment}{//\ Сброс\ DataTable\ в\ состояние\ по\ умолчанию}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ ACT\_BOOT\_LOADER\_REQUEST\ \ \ \ \ 320\ }\textcolor{comment}{//\ Request\ reboot\ to\ bootloader}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ Registers}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ REG\_LAMP\_GREEN\ \ \ \ \ \ \ \ \ \ \ \ \ \ 128\ }\textcolor{comment}{//\ Управление\ зелёным\ индикатором}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ REG\_LAMP\_RED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 129\ }\textcolor{comment}{//\ Управление\ красным\ индикатором}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ REG\_COMPATIBILITY\_1\ \ \ \ \ \ \ \ \ 130\ }\textcolor{comment}{//\ (Не\ используется,\ для\ совместимости)}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ REG\_INT\_FAN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 131\ }\textcolor{comment}{//\ Управление\ вентилятором}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ REG\_DEV\_STATE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 192\ }\textcolor{comment}{//\ Device\ state\ (Не\ используется,\ для\ совместимости)}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ REG\_FAULT\_REASON\ \ \ \ \ \ \ \ \ \ \ \ 193\ }\textcolor{comment}{//\ Fault\ reason\ in\ the\ case\ DeviceState\ -\/>\ FAULT\ (Не\ используется,\ для\ совместимости)}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ REG\_DISABLE\_REASON\ \ \ \ \ \ \ \ \ \ 194\ }\textcolor{comment}{//\ Fault\ reason\ in\ the\ case\ DeviceState\ -\/>\ DISABLED\ (Не\ используется,\ для\ совместимости)}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ REG\_WARNING\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 195\ }\textcolor{comment}{//\ Warning\ if\ present\ (Не\ используется,\ для\ совместимости)}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ REG\_SENSOR\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 197\ }\textcolor{comment}{//\ (Не\ используется,\ для\ совместимости)}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ REG\_SENSOR\_3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 198\ }\textcolor{comment}{//\ (Не\ используется,\ для\ совместимости)}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ REG\_SENSOR\_4\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 199\ }\textcolor{comment}{//\ (Не\ используется,\ для\ совместимости)}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ REG\_EXT\_BUTTON\ \ \ \ \ \ \ \ \ \ \ \ \ \ 200\ }\textcolor{comment}{//\ Состояние\ внешней\ кнопки}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ REG\_OVERLAP\_COUNT\_REQ\ \ \ \ \ \ \ 210\ }\textcolor{comment}{//\ Overlapping\ requests\ via\ SCCI\ interface}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ REG\_OVERLAP\_COUNT\_RESP\ \ \ \ \ \ 211\ }\textcolor{comment}{//\ Overlapping\ responses\ via\ SCCI\ interface}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ REG\_MME\_CODE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 250\ }\textcolor{comment}{//\ MME\ code\ number}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ REG\_FWINFO\_SLAVE\_NID\ \ \ \ \ \ \ \ 256\ }\textcolor{comment}{//\ Device\ CAN\ slave\ node\ ID}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ REG\_FWINFO\_MASTER\_NID\ \ \ \ \ \ \ 257\ }\textcolor{comment}{//\ Device\ CAN\ master\ node\ ID\ (if\ presented)}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ REG\_FWINFO\_STR\_LEN\ \ \ \ \ \ \ \ \ \ 260\ }\textcolor{comment}{//\ Length\ of\ the\ information\ string\ record}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ REG\_FWINFO\_STR\_BEGIN\ \ \ \ \ \ \ \ 261\ }\textcolor{comment}{//\ Begining\ of\ the\ information\ string\ record}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_DEV\_OBJ\_DIC\_H}}
+
+\end{DoxyCode}

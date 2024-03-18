@@ -322,4 +322,5 @@ DOCBOOK_PROGRAMLISTING = NO
 #---------------------------------------------------------------------------
 # Configuration options related to the preprocessor
 #---------------------------------------------------------------------------
-ENABLE_PREPROCESSING   = NO
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES

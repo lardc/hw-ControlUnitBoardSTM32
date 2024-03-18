@@ -6,5 +6,7 @@
 \contentsline {subsection}{\numberline {2.1}File List}{1}{subsection.2.1}%
 \contentsline {section}{\numberline {3}File Documentation}{1}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Firmware/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Source/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Controller.h File Reference}{1}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Detailed Description}{1}{subsubsection.3.1.1}%
-\contentsline {section}{{\cyrillictext \CYRP \cyrr \cyre \cyrd \cyrm \cyre \cyrt \cyrn \cyrery \cyrishrt \ \cyru \cyrk \cyra \cyrz \cyra \cyrt \cyre \cyrl \cyrsftsn }}{3}{section*.2}%
+\contentsline {subsubsection}{\numberline {3.1.1}Detailed Description}{2}{subsubsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.2}Firmware/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Source/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Platform/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Device\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Object\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Dictionary.h File Reference}{2}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Detailed Description}{3}{subsubsection.3.2.1}%
+\contentsline {section}{{\cyrillictext \CYRP \cyrr \cyre \cyrd \cyrm \cyre \cyrt \cyrn \cyrery \cyrishrt \ \cyru \cyrk \cyra \cyrz \cyra \cyrt \cyre \cyrl \cyrsftsn }}{5}{section*.3}%

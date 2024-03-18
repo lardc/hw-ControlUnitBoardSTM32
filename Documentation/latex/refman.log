@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.3.12)  15 MAR 2024 17:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.3.12)  18 MAR 2024 18:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1097,20 +1097,38 @@ LaTeX Font Warning: Font shape `T2A/phv/m/it' undefined
 (Font)              using `T2A/phv/m/n' instead on input line 6.
 
 ) (./files.tex) (./_controller_8h.tex
-LaTeX Font Info:    Trying to load font information for TS1+phv on input line 1
-1.
+LaTeX Font Info:    Trying to load font information for T2A+pcr on input line 8
+.
+LaTeX Font Info:    No file T2Apcr.fd. on input line 8.
 
+
+LaTeX Font Warning: Font shape `T2A/pcr/m/n' undefined
+(Font)              using `T2A/cmr/m/n' instead on input line 8.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
+ []
+
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 1
+2.
 (/usr/share/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 11.
+(Font)              scaled to size 8.99994pt on input line 12.
 )
+(./_device_object_dictionary_8h.tex
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 215.
- [1{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}] [2
+(Font)              scaled to size 8.99994pt on input line 1.
+ [1] [2{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}]) [3] [4
 
-] (./refman.ind [3
+] (./refman.ind
+Overfull \hbox (16.90279pt too wide) in paragraph at lines 5--7
+[]\T2A/phv/b/n/10 Firmware/Source/Platform/DeviceObjectDictionary.h,
+ []
+
+[5
 
 
 ]) (./refman.aux)
@@ -1118,25 +1136,26 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: A6AC4A2C728EC46257F986A41077CA8D;1355.
+(rerunfilecheck)             Checksum: 53C936E1B1BDCBA0480C12A8830FD1F2;1965.
  ) 
 Here is how much of TeX's memory you used:
- 19820 strings out of 476025
- 317696 string characters out of 5796532
- 1860388 words of memory out of 5000000
- 39914 multiletter control sequences out of 15000+600000
- 524363 words of font info for 54 fonts, out of 8000000 for 9000
+ 19930 strings out of 476025
+ 321896 string characters out of 5796532
+ 1874388 words of memory out of 5000000
+ 39977 multiletter control sequences out of 15000+600000
+ 527904 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 101i,11n,117p,398b,500s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/t
-exmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts
-/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/c
-m-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm144
-0.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on refman.pdf (4 pages, 94847 bytes).
+ 101i,15n,117p,506b,695s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/t
+exmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf-dist/fonts
+/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/c
+m-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm120
+0.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/sha
+re/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on refman.pdf (6 pages, 134237 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
- 97 compressed objects within 1 object stream
- 20 named destinations out of 1000 (max. 500000)
- 65 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 179 PDF objects out of 1000 (max. 8388607)
+ 155 compressed objects within 2 object streams
+ 53 named destinations out of 1000 (max. 500000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

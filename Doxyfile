@@ -1,5 +1,5 @@
 DOXYFILE_ENCODING      = UTF-8
-PROJECT_NAME           = FCROVU
+PROJECT_NAME           = MCU
 OUTPUT_DIRECTORY       = ./Documentation/
 CREATE_SUBDIRS         = NO
 ALLOW_UNICODE_NAMES    = YES
@@ -126,7 +126,7 @@ WARN_LOGFILE           =
 # Configuration options related to the input files
 #---------------------------------------------------------------------------
 
-INPUT                  = ./
+INPUT                  = ./ ../hw-STM32-libs/
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.c \
                          *.cc \
@@ -177,7 +177,7 @@ FILE_PATTERNS          = *.c \
 RECURSIVE              = YES
 
 # Подумать
-EXCLUDE                =
+EXCLUDE                = ../hw-STM32-libs/System/
 
 EXCLUDE_SYMLINKS       = NO
 

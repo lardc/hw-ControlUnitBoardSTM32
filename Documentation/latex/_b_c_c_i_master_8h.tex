@@ -1,0 +1,48 @@
+\doxysubsection{/home/pumukun/\+Avocado\+\_\+\+Test/hw-\/\+STM32-\/libs/\+Interface/\+BCCIMaster.h File Reference}
+\hypertarget{_b_c_c_i_master_8h}{}\label{_b_c_c_i_master_8h}\index{/home/pumukun/Avocado\_Test/hw-\/STM32-\/libs/Interface/BCCIMaster.h@{/home/pumukun/Avocado\_Test/hw-\/STM32-\/libs/Interface/BCCIMaster.h}}
+
+
+BCCI master communication interface.  
+
+
+{\ttfamily \#include "{}stdinc.\+h"{}}\newline
+{\ttfamily \#include "{}BCCITypes.\+h"{}}\newline
+\doxysubsubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_b_c_c_i_m___interface}{p\+BCCIM\+\_\+\+Interface}}
+\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_b_c_c_i_master_8h_adfecdcedc5040e4936963a6becb60d09}{BCCIM\+\_\+\+Init}} (p\+BCCIM\+\_\+\+Interface Interface, p\+BCCI\+\_\+\+IOConfig IOConfig, Int32U Message\+Timeout\+Ticks, volatile Int64U \texorpdfstring{$\ast$}{*}p\+Timer)
+\begin{DoxyCompactList}\small\item\em Инициализация BCCI интерфейса -\/ сетап Mailbox для записи и чтения, запись Мейлбоксов в IOConfig. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+BCCI master communication interface. 
+
+
+
+\doxysubsubsection{Function Documentation}
+\Hypertarget{_b_c_c_i_master_8h_adfecdcedc5040e4936963a6becb60d09}\label{_b_c_c_i_master_8h_adfecdcedc5040e4936963a6becb60d09} 
+\index{BCCIMaster.h@{BCCIMaster.h}!BCCIM\_Init@{BCCIM\_Init}}
+\index{BCCIM\_Init@{BCCIM\_Init}!BCCIMaster.h@{BCCIMaster.h}}
+\doxyparagraph{\texorpdfstring{BCCIM\_Init()}{BCCIM\_Init()}}
+{\footnotesize\ttfamily void BCCIM\+\_\+\+Init (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface,  }\item[{p\+BCCI\+\_\+\+IOConfig}]{IOConfig,  }\item[{Int32U}]{Message\+Timeout\+Ticks,  }\item[{volatile Int64U \texorpdfstring{$\ast$}{*}}]{p\+Timer }\end{DoxyParamCaption})}
+
+
+
+Инициализация BCCI интерфейса -\/ сетап Mailbox для записи и чтения, запись Мейлбоксов в IOConfig. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Interface} & -\/ Указатель на структуру, хранящую параметры CAN-\/интерфейса (таймаут и функции обратного вызова). \\
+\hline
+{\em IOConfig} & -\/ Указатель на структуру, содержащую функции обратного вызова. Эти функции передаются в интерфейс. \\
+\hline
+{\em Message\+Timeout\+Ticks} & -\/ Величина таймаута при обмене сообщениями по CAN, в миллисекундах \\
+\hline
+{\em p\+Timer} & -\/ Указатель на системный таймер, в миллисекундах \\
+\hline
+\end{DoxyParams}

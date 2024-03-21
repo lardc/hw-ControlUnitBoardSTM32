@@ -24,8 +24,16 @@
 */
 var NAVTREE =
 [
-  [ "FCROVU", "index.html", [
+  [ "MCU", "index.html", [
     [ "Firmware", "index.html#autotoc_md1", null ],
+    [ "Data Structures", "annotated.html", [
+      [ "Data Structures", "annotated.html", "annotated_dup" ],
+      [ "Data Structure Index", "classes.html", null ],
+      [ "Data Fields", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Variables", "functions_vars.html", null ]
+      ] ]
+    ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
@@ -39,7 +47,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_controller_8h.html"
+"_b_c_c_i_master_8h.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

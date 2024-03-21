@@ -1,6 +1,6 @@
 \@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
 \babel@toc {russian}{}\relax 
-\contentsline {section}{\numberline {1}FCROVU}{1}{section.1}%
+\contentsline {section}{\numberline {1}MCU}{1}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Firmware}{1}{subsection.1.1}%
 \contentsline {section}{\numberline {2}File Index}{1}{section.2}%
 \contentsline {subsection}{\numberline {2.1}File List}{1}{subsection.2.1}%

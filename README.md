@@ -1,4 +1,4 @@
-# FCROVU
+# MCU
 
 ## Firmware
 

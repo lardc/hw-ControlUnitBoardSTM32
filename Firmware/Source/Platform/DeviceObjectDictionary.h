@@ -1,6 +1,6 @@
 ﻿/** @file DeviceObjectDictionary.h
  * @brief Device object dictionary
- */
+*/
 
 #ifndef __DEV_OBJ_DIC_H
 #define __DEV_OBJ_DIC_H

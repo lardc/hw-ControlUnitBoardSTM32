@@ -1,44 +1,49 @@
-\doxysubsection{/home/pumukun/\+Avocado\+\_\+\+Test/hw-\/\+STM32-\/libs/\+Interface/\+BCCIMaster.h File Reference}
-\hypertarget{_b_c_c_i_master_8h}{}\label{_b_c_c_i_master_8h}\index{/home/pumukun/Avocado\_Test/hw-\/STM32-\/libs/Interface/BCCIMaster.h@{/home/pumukun/Avocado\_Test/hw-\/STM32-\/libs/Interface/BCCIMaster.h}}
+\doxysubsection{/home/pumukun/\+Avocado\+\_\+\+Test/hw-\/\+STM32-\/libs/\+Interface/\+BCCIMaster.c File Reference}
+\hypertarget{_b_c_c_i_master_8c}{}\label{_b_c_c_i_master_8c}\index{/home/pumukun/Avocado\_Test/hw-\/STM32-\/libs/Interface/BCCIMaster.c@{/home/pumukun/Avocado\_Test/hw-\/STM32-\/libs/Interface/BCCIMaster.c}}
 
 
 Бибиблиотека интерфейса Master BCCI.  
 
 
-{\ttfamily \#include "{}stdinc.\+h"{}}\newline
-{\ttfamily \#include "{}BCCITypes.\+h"{}}\newline
-\doxysubsubsubsection*{Data Structures}
-\begin{DoxyCompactItemize}
-\item 
-struct \mbox{\hyperlink{struct_b_c_c_i_m___interface}{p\+BCCIM\+\_\+\+Interface}}
-\end{DoxyCompactItemize}
+{\ttfamily \#include "{}BCCIMaster.\+h"{}}\newline
+{\ttfamily \#include "{}BCCIx\+Params.\+h"{}}\newline
+{\ttfamily \#include "{}CRC16.\+h"{}}\newline
+{\ttfamily \#include "{}Sys\+Config.\+h"{}}\newline
+{\ttfamily \#include "{}Device\+Profile.\+h"{}}\newline
+{\ttfamily \#include "{}Zw\+IWDG.\+h"{}}\newline
 \doxysubsubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{_b_c_c_i_master_8h_adfecdcedc5040e4936963a6becb60d09}{BCCIM\+\_\+\+Init}} (p\+BCCIM\+\_\+\+Interface Interface, p\+BCCI\+\_\+\+IOConfig IOConfig, Int32U Message\+Timeout\+Ticks, volatile Int64U \texorpdfstring{$\ast$}{*}p\+Timer)
+void \mbox{\hyperlink{_b_c_c_i_master_8c_a7928af9aba4fde96bba48b2a1fbf84fc}{BCCIM\+\_\+\+Send\+Frame}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Mailbox, p\+CANMessage Message, Int32U Node)
+\begin{DoxyCompactList}\small\item\em Отправка CAN сообщения. \end{DoxyCompactList}\item 
+Int16U \mbox{\hyperlink{_b_c_c_i_master_8c_a0c9b9172bd08449a92cbd7a4662d4244}{BCCIM\+\_\+\+Wait\+Response}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Mailbox)
+\begin{DoxyCompactList}\small\item\em Ожидание ответа от узла, полученного по мейлбоксу Mailbox. \end{DoxyCompactList}\item 
+Boolean \mbox{\hyperlink{_b_c_c_i_master_8c_a3e1b6ea80e464888929d2f2a0d0a6cf9}{BCCIM\+\_\+\+Handle\+Read\+Block16}} (p\+BCCIM\+\_\+\+Interface Interface)
+\begin{DoxyCompactList}\small\item\em Обработка получения блока данных из CAN сети. \end{DoxyCompactList}\item 
+Boolean \mbox{\hyperlink{_b_c_c_i_master_8c_a9d31d45247650bc06699ec28dc7f58fa}{BCCIM\+\_\+\+Handle\+Read\+Block\+Float}} (p\+BCCIM\+\_\+\+Interface Interface)
+\begin{DoxyCompactList}\small\item\em Обработка получения блока(массива) данных с значениями типа float из CAN сети. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_b_c_c_i_master_8c_adfecdcedc5040e4936963a6becb60d09}{BCCIM\+\_\+\+Init}} (p\+BCCIM\+\_\+\+Interface Interface, p\+BCCI\+\_\+\+IOConfig IOConfig, Int32U Message\+Timeout\+Ticks, volatile Int64U \texorpdfstring{$\ast$}{*}p\+Timer)
 \begin{DoxyCompactList}\small\item\em Инициализация Master BCCI интерфейса -\/ сетап Mailbox для записи и чтения, запись Mailbox в IOConfig. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_b_c_c_i_master_8h_a2ddb5f7220206027b6a1aee0b4ab62dc}{BCCIM\+\_\+\+Init\+With\+Node\+ID}} (p\+BCCIM\+\_\+\+Interface Interface, p\+BCCI\+\_\+\+IOConfig IOConfig, Int32U Message\+Timeout\+Ticks, volatile Int64U \texorpdfstring{$\ast$}{*}p\+Timer, Int16U Node\+ID)
+void \mbox{\hyperlink{_b_c_c_i_master_8c_a2ddb5f7220206027b6a1aee0b4ab62dc}{BCCIM\+\_\+\+Init\+With\+Node\+ID}} (p\+BCCIM\+\_\+\+Interface Interface, p\+BCCI\+\_\+\+IOConfig IOConfig, Int32U Message\+Timeout\+Ticks, volatile Int64U \texorpdfstring{$\ast$}{*}p\+Timer, Int16U Node\+ID)
 \begin{DoxyCompactList}\small\item\em Инициализация Master BCCI интерфейса для конкретного узла(\+Node\+ID) \end{DoxyCompactList}\item 
-Int16U \mbox{\hyperlink{_b_c_c_i_master_8h_af7e36b242718670c99ed62cb8b05e436}{BCCIM\+\_\+\+Read16}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Register, p\+Int16U Data)
+Int16U \mbox{\hyperlink{_b_c_c_i_master_8c_af7e36b242718670c99ed62cb8b05e436}{BCCIM\+\_\+\+Read16}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Register, p\+Int16U Data)
 \begin{DoxyCompactList}\small\item\em Чтение 16-\/битного значения из регистра узла в CAN сети. \end{DoxyCompactList}\item 
-Int16U \mbox{\hyperlink{_b_c_c_i_master_8h_a458b54be2dcb0575b6fba617c85b2276}{BCCIM\+\_\+\+Read\+Float}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Register, float \texorpdfstring{$\ast$}{*}Data)
+Int16U \mbox{\hyperlink{_b_c_c_i_master_8c_a458b54be2dcb0575b6fba617c85b2276}{BCCIM\+\_\+\+Read\+Float}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Register, float \texorpdfstring{$\ast$}{*}Data)
 \begin{DoxyCompactList}\small\item\em Чтение 32-\/битного float значения из регистра узла в CAN сети. \end{DoxyCompactList}\item 
-Int16U \mbox{\hyperlink{_b_c_c_i_master_8h_acf61f67c03a06fccac636a6f4a4371db}{BCCIM\+\_\+\+Read\+Limit\+Float}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Register, Boolean Read\+High\+Limit, float \texorpdfstring{$\ast$}{*}Data)
+Int16U \mbox{\hyperlink{_b_c_c_i_master_8c_a4709098f3f33e65719018d2a400e0451}{BCCIM\+\_\+\+Read\+Limit\+Float}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Register, Boolean Read\+High\+Limit, float \texorpdfstring{$\ast$}{*}Data)
 \begin{DoxyCompactList}\small\item\em Чтение 32-\/битного float значения из регистра узла в CAN сети. \end{DoxyCompactList}\item 
-Int16U \mbox{\hyperlink{_b_c_c_i_master_8h_a971e1f5a093bcbc044dd241d0a3d229d}{BCCIM\+\_\+\+Write16}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Register, Int16U Data)
+Int16U \mbox{\hyperlink{_b_c_c_i_master_8c_a971e1f5a093bcbc044dd241d0a3d229d}{BCCIM\+\_\+\+Write16}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Register, Int16U Data)
 \begin{DoxyCompactList}\small\item\em Запись 16-\/битного значения в регистр узла в CAN сети. \end{DoxyCompactList}\item 
-Int16U \mbox{\hyperlink{_b_c_c_i_master_8h_ad360184a22152999091e8c955f9aacd3}{BCCIM\+\_\+\+Write\+Float}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Register, float Data)
+Int16U \mbox{\hyperlink{_b_c_c_i_master_8c_ad360184a22152999091e8c955f9aacd3}{BCCIM\+\_\+\+Write\+Float}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Register, float Data)
 \begin{DoxyCompactList}\small\item\em Запись 32-\/битного float значения в регистр узла в CAN сети. \end{DoxyCompactList}\item 
-Int16U \mbox{\hyperlink{_b_c_c_i_master_8h_a2b59f4fb4c7f5aa85b68963850b063d8}{BCCIM\+\_\+\+Call}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Action)
+Int16U \mbox{\hyperlink{_b_c_c_i_master_8c_a2b59f4fb4c7f5aa85b68963850b063d8}{BCCIM\+\_\+\+Call}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Action)
 \begin{DoxyCompactList}\small\item\em Вызов функции узла в CAN сети. \end{DoxyCompactList}\item 
-Int16U \mbox{\hyperlink{_b_c_c_i_master_8h_a497dd58ae30b4885ffef0f19c9f13e48}{BCCIM\+\_\+\+Read\+Block16}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Endpoint)
+Int16U \mbox{\hyperlink{_b_c_c_i_master_8c_a497dd58ae30b4885ffef0f19c9f13e48}{BCCIM\+\_\+\+Read\+Block16}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Endpoint)
 \begin{DoxyCompactList}\small\item\em Чтение блока(массива) данных из узла в CAN сети. \end{DoxyCompactList}\item 
-Int16U \mbox{\hyperlink{_b_c_c_i_master_8h_a31af771d1e19aee4c60315b539b2f4aa}{BCCIM\+\_\+\+Write\+Block16}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Endpoint, p\+Int16U Data, Int16U Data\+Length)
+Int16U \mbox{\hyperlink{_b_c_c_i_master_8c_a31af771d1e19aee4c60315b539b2f4aa}{BCCIM\+\_\+\+Write\+Block16}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Endpoint, p\+Int16U Data, Int16U Data\+Length)
 \begin{DoxyCompactList}\small\item\em Запись блока(массива) данных в узел в CAN сети. \end{DoxyCompactList}\item 
-Int16U \mbox{\hyperlink{_b_c_c_i_master_8h_aa01eaa7aae3ec2b1f9208ae8205a95d8}{BCCIM\+\_\+\+Read\+Block\+Float}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Endpoint)
-\begin{DoxyCompactList}\small\item\em Чтение блока(массива) данных со значениями типа данных float из регистра узла в CAN сети. \end{DoxyCompactList}\item 
-Int16U \mbox{\hyperlink{_b_c_c_i_master_8h_a7d7ef3da1bd300d760d417a664823250}{BCCIM\+\_\+\+Write\+Block\+Float}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Endpoint, p\+Float Data, Int16U Data\+Length)
-\begin{DoxyCompactList}\small\item\em Запись блока(массива) данных со значениями типа данных float в регистр узла в CAN сети. \end{DoxyCompactList}\end{DoxyCompactItemize}
+Int16U \mbox{\hyperlink{_b_c_c_i_master_8c_aa01eaa7aae3ec2b1f9208ae8205a95d8}{BCCIM\+\_\+\+Read\+Block\+Float}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Endpoint)
+\begin{DoxyCompactList}\small\item\em Чтение блока(массива) данных со значениями типа данных float из регистра узла в CAN сети. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsubsection{Detailed Description}
@@ -47,9 +52,9 @@ Int16U \mbox{\hyperlink{_b_c_c_i_master_8h_a7d7ef3da1bd300d760d417a664823250}{BC
 
 
 \doxysubsubsection{Function Documentation}
-\Hypertarget{_b_c_c_i_master_8h_a2b59f4fb4c7f5aa85b68963850b063d8}\label{_b_c_c_i_master_8h_a2b59f4fb4c7f5aa85b68963850b063d8} 
-\index{BCCIMaster.h@{BCCIMaster.h}!BCCIM\_Call@{BCCIM\_Call}}
-\index{BCCIM\_Call@{BCCIM\_Call}!BCCIMaster.h@{BCCIMaster.h}}
+\Hypertarget{_b_c_c_i_master_8c_a2b59f4fb4c7f5aa85b68963850b063d8}\label{_b_c_c_i_master_8c_a2b59f4fb4c7f5aa85b68963850b063d8} 
+\index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_Call@{BCCIM\_Call}}
+\index{BCCIM\_Call@{BCCIM\_Call}!BCCIMaster.c@{BCCIMaster.c}}
 \doxyparagraph{\texorpdfstring{BCCIM\_Call()}{BCCIM\_Call()}}
 {\footnotesize\ttfamily Int16U BCCIM\+\_\+\+Call (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface,  }\item[{Int16U}]{Node,  }\item[{Int16U}]{Action }\end{DoxyParamCaption})}
 
@@ -69,9 +74,45 @@ Int16U \mbox{\hyperlink{_b_c_c_i_master_8h_a7d7ef3da1bd300d760d417a664823250}{BC
 \begin{DoxyReturn}{Returns}
 ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошла ошибка таймаута. 
 \end{DoxyReturn}
-\Hypertarget{_b_c_c_i_master_8h_adfecdcedc5040e4936963a6becb60d09}\label{_b_c_c_i_master_8h_adfecdcedc5040e4936963a6becb60d09} 
-\index{BCCIMaster.h@{BCCIMaster.h}!BCCIM\_Init@{BCCIM\_Init}}
-\index{BCCIM\_Init@{BCCIM\_Init}!BCCIMaster.h@{BCCIMaster.h}}
+\Hypertarget{_b_c_c_i_master_8c_a3e1b6ea80e464888929d2f2a0d0a6cf9}\label{_b_c_c_i_master_8c_a3e1b6ea80e464888929d2f2a0d0a6cf9} 
+\index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_HandleReadBlock16@{BCCIM\_HandleReadBlock16}}
+\index{BCCIM\_HandleReadBlock16@{BCCIM\_HandleReadBlock16}!BCCIMaster.c@{BCCIMaster.c}}
+\doxyparagraph{\texorpdfstring{BCCIM\_HandleReadBlock16()}{BCCIM\_HandleReadBlock16()}}
+{\footnotesize\ttfamily Boolean BCCIM\+\_\+\+Handle\+Read\+Block16 (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface }\end{DoxyParamCaption})}
+
+
+
+Обработка получения блока данных из CAN сети. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Interface} & -\/ Указатель на структуру, хранящую параметры CAN-\/интерфейса (таймаут и функции обратного вызова). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE, если блок данных получен, FALSE в противном случае. 
+\end{DoxyReturn}
+\Hypertarget{_b_c_c_i_master_8c_a9d31d45247650bc06699ec28dc7f58fa}\label{_b_c_c_i_master_8c_a9d31d45247650bc06699ec28dc7f58fa} 
+\index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_HandleReadBlockFloat@{BCCIM\_HandleReadBlockFloat}}
+\index{BCCIM\_HandleReadBlockFloat@{BCCIM\_HandleReadBlockFloat}!BCCIMaster.c@{BCCIMaster.c}}
+\doxyparagraph{\texorpdfstring{BCCIM\_HandleReadBlockFloat()}{BCCIM\_HandleReadBlockFloat()}}
+{\footnotesize\ttfamily Boolean BCCIM\+\_\+\+Handle\+Read\+Block\+Float (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface }\end{DoxyParamCaption})}
+
+
+
+Обработка получения блока(массива) данных с значениями типа float из CAN сети. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Interface} & -\/ Указатель на структуру, хранящую параметры CAN-\/интерфейса (таймаут и функции обратного вызова). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE, если блок данных получен, FALSE в противном случае. 
+\end{DoxyReturn}
+\Hypertarget{_b_c_c_i_master_8c_adfecdcedc5040e4936963a6becb60d09}\label{_b_c_c_i_master_8c_adfecdcedc5040e4936963a6becb60d09} 
+\index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_Init@{BCCIM\_Init}}
+\index{BCCIM\_Init@{BCCIM\_Init}!BCCIMaster.c@{BCCIMaster.c}}
 \doxyparagraph{\texorpdfstring{BCCIM\_Init()}{BCCIM\_Init()}}
 {\footnotesize\ttfamily void BCCIM\+\_\+\+Init (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface,  }\item[{p\+BCCI\+\_\+\+IOConfig}]{IOConfig,  }\item[{Int32U}]{Message\+Timeout\+Ticks,  }\item[{volatile Int64U \texorpdfstring{$\ast$}{*}}]{p\+Timer }\end{DoxyParamCaption})}
 
@@ -90,9 +131,9 @@ ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошл�
 {\em p\+Timer} & -\/ Указатель на системный таймер, в миллисекундах \\
 \hline
 \end{DoxyParams}
-\Hypertarget{_b_c_c_i_master_8h_a2ddb5f7220206027b6a1aee0b4ab62dc}\label{_b_c_c_i_master_8h_a2ddb5f7220206027b6a1aee0b4ab62dc} 
-\index{BCCIMaster.h@{BCCIMaster.h}!BCCIM\_InitWithNodeID@{BCCIM\_InitWithNodeID}}
-\index{BCCIM\_InitWithNodeID@{BCCIM\_InitWithNodeID}!BCCIMaster.h@{BCCIMaster.h}}
+\Hypertarget{_b_c_c_i_master_8c_a2ddb5f7220206027b6a1aee0b4ab62dc}\label{_b_c_c_i_master_8c_a2ddb5f7220206027b6a1aee0b4ab62dc} 
+\index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_InitWithNodeID@{BCCIM\_InitWithNodeID}}
+\index{BCCIM\_InitWithNodeID@{BCCIM\_InitWithNodeID}!BCCIMaster.c@{BCCIMaster.c}}
 \doxyparagraph{\texorpdfstring{BCCIM\_InitWithNodeID()}{BCCIM\_InitWithNodeID()}}
 {\footnotesize\ttfamily void BCCIM\+\_\+\+Init\+With\+Node\+ID (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface,  }\item[{p\+BCCI\+\_\+\+IOConfig}]{IOConfig,  }\item[{Int32U}]{Message\+Timeout\+Ticks,  }\item[{volatile Int64U \texorpdfstring{$\ast$}{*}}]{p\+Timer,  }\item[{Int16U}]{Node\+ID }\end{DoxyParamCaption})}
 
@@ -113,9 +154,9 @@ ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошл�
 {\em Node\+ID} & -\/ ID узла в CAN сети \\
 \hline
 \end{DoxyParams}
-\Hypertarget{_b_c_c_i_master_8h_af7e36b242718670c99ed62cb8b05e436}\label{_b_c_c_i_master_8h_af7e36b242718670c99ed62cb8b05e436} 
-\index{BCCIMaster.h@{BCCIMaster.h}!BCCIM\_Read16@{BCCIM\_Read16}}
-\index{BCCIM\_Read16@{BCCIM\_Read16}!BCCIMaster.h@{BCCIMaster.h}}
+\Hypertarget{_b_c_c_i_master_8c_af7e36b242718670c99ed62cb8b05e436}\label{_b_c_c_i_master_8c_af7e36b242718670c99ed62cb8b05e436} 
+\index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_Read16@{BCCIM\_Read16}}
+\index{BCCIM\_Read16@{BCCIM\_Read16}!BCCIMaster.c@{BCCIMaster.c}}
 \doxyparagraph{\texorpdfstring{BCCIM\_Read16()}{BCCIM\_Read16()}}
 {\footnotesize\ttfamily Int16U BCCIM\+\_\+\+Read16 (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface,  }\item[{Int16U}]{Node,  }\item[{Int16U}]{Register,  }\item[{p\+Int16U}]{Data }\end{DoxyParamCaption})}
 
@@ -137,9 +178,9 @@ ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошл�
 \begin{DoxyReturn}{Returns}
 ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошла ошибка таймаута. 
 \end{DoxyReturn}
-\Hypertarget{_b_c_c_i_master_8h_a497dd58ae30b4885ffef0f19c9f13e48}\label{_b_c_c_i_master_8h_a497dd58ae30b4885ffef0f19c9f13e48} 
-\index{BCCIMaster.h@{BCCIMaster.h}!BCCIM\_ReadBlock16@{BCCIM\_ReadBlock16}}
-\index{BCCIM\_ReadBlock16@{BCCIM\_ReadBlock16}!BCCIMaster.h@{BCCIMaster.h}}
+\Hypertarget{_b_c_c_i_master_8c_a497dd58ae30b4885ffef0f19c9f13e48}\label{_b_c_c_i_master_8c_a497dd58ae30b4885ffef0f19c9f13e48} 
+\index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_ReadBlock16@{BCCIM\_ReadBlock16}}
+\index{BCCIM\_ReadBlock16@{BCCIM\_ReadBlock16}!BCCIMaster.c@{BCCIMaster.c}}
 \doxyparagraph{\texorpdfstring{BCCIM\_ReadBlock16()}{BCCIM\_ReadBlock16()}}
 {\footnotesize\ttfamily Int16U BCCIM\+\_\+\+Read\+Block16 (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface,  }\item[{Int16U}]{Node,  }\item[{Int16U}]{Endpoint }\end{DoxyParamCaption})}
 
@@ -159,9 +200,9 @@ ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошл�
 \begin{DoxyReturn}{Returns}
 ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошла ошибка таймаута. 
 \end{DoxyReturn}
-\Hypertarget{_b_c_c_i_master_8h_aa01eaa7aae3ec2b1f9208ae8205a95d8}\label{_b_c_c_i_master_8h_aa01eaa7aae3ec2b1f9208ae8205a95d8} 
-\index{BCCIMaster.h@{BCCIMaster.h}!BCCIM\_ReadBlockFloat@{BCCIM\_ReadBlockFloat}}
-\index{BCCIM\_ReadBlockFloat@{BCCIM\_ReadBlockFloat}!BCCIMaster.h@{BCCIMaster.h}}
+\Hypertarget{_b_c_c_i_master_8c_aa01eaa7aae3ec2b1f9208ae8205a95d8}\label{_b_c_c_i_master_8c_aa01eaa7aae3ec2b1f9208ae8205a95d8} 
+\index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_ReadBlockFloat@{BCCIM\_ReadBlockFloat}}
+\index{BCCIM\_ReadBlockFloat@{BCCIM\_ReadBlockFloat}!BCCIMaster.c@{BCCIMaster.c}}
 \doxyparagraph{\texorpdfstring{BCCIM\_ReadBlockFloat()}{BCCIM\_ReadBlockFloat()}}
 {\footnotesize\ttfamily Int16U BCCIM\+\_\+\+Read\+Block\+Float (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface,  }\item[{Int16U}]{Node,  }\item[{Int16U}]{Endpoint }\end{DoxyParamCaption})}
 
@@ -181,9 +222,9 @@ ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошл�
 \begin{DoxyReturn}{Returns}
 ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошла ошибка таймаута. 
 \end{DoxyReturn}
-\Hypertarget{_b_c_c_i_master_8h_a458b54be2dcb0575b6fba617c85b2276}\label{_b_c_c_i_master_8h_a458b54be2dcb0575b6fba617c85b2276} 
-\index{BCCIMaster.h@{BCCIMaster.h}!BCCIM\_ReadFloat@{BCCIM\_ReadFloat}}
-\index{BCCIM\_ReadFloat@{BCCIM\_ReadFloat}!BCCIMaster.h@{BCCIMaster.h}}
+\Hypertarget{_b_c_c_i_master_8c_a458b54be2dcb0575b6fba617c85b2276}\label{_b_c_c_i_master_8c_a458b54be2dcb0575b6fba617c85b2276} 
+\index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_ReadFloat@{BCCIM\_ReadFloat}}
+\index{BCCIM\_ReadFloat@{BCCIM\_ReadFloat}!BCCIMaster.c@{BCCIMaster.c}}
 \doxyparagraph{\texorpdfstring{BCCIM\_ReadFloat()}{BCCIM\_ReadFloat()}}
 {\footnotesize\ttfamily Int16U BCCIM\+\_\+\+Read\+Float (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface,  }\item[{Int16U}]{Node,  }\item[{Int16U}]{Register,  }\item[{float \texorpdfstring{$\ast$}{*}}]{Data }\end{DoxyParamCaption})}
 
@@ -205,11 +246,11 @@ ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошл�
 \begin{DoxyReturn}{Returns}
 ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошла ошибка таймаута. 
 \end{DoxyReturn}
-\Hypertarget{_b_c_c_i_master_8h_acf61f67c03a06fccac636a6f4a4371db}\label{_b_c_c_i_master_8h_acf61f67c03a06fccac636a6f4a4371db} 
-\index{BCCIMaster.h@{BCCIMaster.h}!BCCIM\_ReadLimitFloat@{BCCIM\_ReadLimitFloat}}
-\index{BCCIM\_ReadLimitFloat@{BCCIM\_ReadLimitFloat}!BCCIMaster.h@{BCCIMaster.h}}
+\Hypertarget{_b_c_c_i_master_8c_a4709098f3f33e65719018d2a400e0451}\label{_b_c_c_i_master_8c_a4709098f3f33e65719018d2a400e0451} 
+\index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_ReadLimitFloat@{BCCIM\_ReadLimitFloat}}
+\index{BCCIM\_ReadLimitFloat@{BCCIM\_ReadLimitFloat}!BCCIMaster.c@{BCCIMaster.c}}
 \doxyparagraph{\texorpdfstring{BCCIM\_ReadLimitFloat()}{BCCIM\_ReadLimitFloat()}}
-{\footnotesize\ttfamily Int16U BCCIM\+\_\+\+Read\+Limit\+Float (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface,  }\item[{Int16U}]{Node,  }\item[{Int16U}]{Register,  }\item[{Boolean}]{Read\+High\+Limit,  }\item[{float \texorpdfstring{$\ast$}{*}}]{Data }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily BCCIM\+\_\+\+Read\+Limit\+Float (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface,  }\item[{Int16U}]{Node,  }\item[{Int16U}]{Register,  }\item[{Boolean}]{Read\+High\+Limit,  }\item[{float \texorpdfstring{$\ast$}{*}}]{Data }\end{DoxyParamCaption})}
 
 
 
@@ -231,9 +272,57 @@ ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошл�
 \begin{DoxyReturn}{Returns}
 ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошла ошибка таймаута. 
 \end{DoxyReturn}
-\Hypertarget{_b_c_c_i_master_8h_a971e1f5a093bcbc044dd241d0a3d229d}\label{_b_c_c_i_master_8h_a971e1f5a093bcbc044dd241d0a3d229d} 
-\index{BCCIMaster.h@{BCCIMaster.h}!BCCIM\_Write16@{BCCIM\_Write16}}
-\index{BCCIM\_Write16@{BCCIM\_Write16}!BCCIMaster.h@{BCCIMaster.h}}
+\Hypertarget{_b_c_c_i_master_8c_a7928af9aba4fde96bba48b2a1fbf84fc}\label{_b_c_c_i_master_8c_a7928af9aba4fde96bba48b2a1fbf84fc} 
+\index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_SendFrame@{BCCIM\_SendFrame}}
+\index{BCCIM\_SendFrame@{BCCIM\_SendFrame}!BCCIMaster.c@{BCCIMaster.c}}
+\doxyparagraph{\texorpdfstring{BCCIM\_SendFrame()}{BCCIM\_SendFrame()}}
+{\footnotesize\ttfamily void BCCIM\+\_\+\+Send\+Frame (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface,  }\item[{Int16U}]{Mailbox,  }\item[{p\+CANMessage}]{Message,  }\item[{Int32U}]{Node }\end{DoxyParamCaption})}
+
+
+
+Отправка CAN сообщения. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Interface} & -\/ Указатель на структуру, хранящую параметры CAN-\/интерфейса (таймаут и функции обратного вызова). \\
+\hline
+{\em Mailbox} & -\/ ID мейлбокса внутри узла в который будет отправлено сообщение. \\
+\hline
+{\em Message} & -\/ Указатель на структуру CAN сообщения. \\
+\hline
+{\em Node} & -\/ ID узла в CAN сети. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_b_c_c_i_master_8c_a0c9b9172bd08449a92cbd7a4662d4244}\label{_b_c_c_i_master_8c_a0c9b9172bd08449a92cbd7a4662d4244} 
+\index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_WaitResponse@{BCCIM\_WaitResponse}}
+\index{BCCIM\_WaitResponse@{BCCIM\_WaitResponse}!BCCIMaster.c@{BCCIMaster.c}}
+\doxyparagraph{\texorpdfstring{BCCIM\_WaitResponse()}{BCCIM\_WaitResponse()}}
+{\footnotesize\ttfamily Int16U BCCIM\+\_\+\+Wait\+Response (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface,  }\item[{Int16U}]{Mailbox }\end{DoxyParamCaption})}
+
+
+
+Ожидание ответа от узла, полученного по мейлбоксу Mailbox. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Interface} & -\/ Указатель на структуру, хранящую параметры CAN-\/интерфейса (таймаут и функции обратного вызова). \\
+\hline
+{\em Mailbox} & -\/ ID мейлбокса внутри узла, с которым собираемся общаться, в который будет отправлено сообщение. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошла ошибка таймаута. 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em ERR\+\_\+\+NO\+\_\+\+ERROR} & -\/ Ответ получен. \\
+\hline
+{\em ERR\+\_\+\+TIMEOUT} & -\/ Тайм-\/аут \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{_b_c_c_i_master_8c_a971e1f5a093bcbc044dd241d0a3d229d}\label{_b_c_c_i_master_8c_a971e1f5a093bcbc044dd241d0a3d229d} 
+\index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_Write16@{BCCIM\_Write16}}
+\index{BCCIM\_Write16@{BCCIM\_Write16}!BCCIMaster.c@{BCCIMaster.c}}
 \doxyparagraph{\texorpdfstring{BCCIM\_Write16()}{BCCIM\_Write16()}}
 {\footnotesize\ttfamily Int16U BCCIM\+\_\+\+Write16 (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface,  }\item[{Int16U}]{Node,  }\item[{Int16U}]{Register,  }\item[{Int16U}]{Data }\end{DoxyParamCaption})}
 
@@ -255,9 +344,9 @@ ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошл�
 \begin{DoxyReturn}{Returns}
 ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошла ошибка таймаута. 
 \end{DoxyReturn}
-\Hypertarget{_b_c_c_i_master_8h_a31af771d1e19aee4c60315b539b2f4aa}\label{_b_c_c_i_master_8h_a31af771d1e19aee4c60315b539b2f4aa} 
-\index{BCCIMaster.h@{BCCIMaster.h}!BCCIM\_WriteBlock16@{BCCIM\_WriteBlock16}}
-\index{BCCIM\_WriteBlock16@{BCCIM\_WriteBlock16}!BCCIMaster.h@{BCCIMaster.h}}
+\Hypertarget{_b_c_c_i_master_8c_a31af771d1e19aee4c60315b539b2f4aa}\label{_b_c_c_i_master_8c_a31af771d1e19aee4c60315b539b2f4aa} 
+\index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_WriteBlock16@{BCCIM\_WriteBlock16}}
+\index{BCCIM\_WriteBlock16@{BCCIM\_WriteBlock16}!BCCIMaster.c@{BCCIMaster.c}}
 \doxyparagraph{\texorpdfstring{BCCIM\_WriteBlock16()}{BCCIM\_WriteBlock16()}}
 {\footnotesize\ttfamily Int16U BCCIM\+\_\+\+Write\+Block16 (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface,  }\item[{Int16U}]{Node,  }\item[{Int16U}]{Endpoint,  }\item[{p\+Int16U}]{Data,  }\item[{Int16U}]{Data\+Length }\end{DoxyParamCaption})}
 
@@ -281,35 +370,9 @@ ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошл�
 \begin{DoxyReturn}{Returns}
 ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошла ошибка таймаута. 
 \end{DoxyReturn}
-\Hypertarget{_b_c_c_i_master_8h_a7d7ef3da1bd300d760d417a664823250}\label{_b_c_c_i_master_8h_a7d7ef3da1bd300d760d417a664823250} 
-\index{BCCIMaster.h@{BCCIMaster.h}!BCCIM\_WriteBlockFloat@{BCCIM\_WriteBlockFloat}}
-\index{BCCIM\_WriteBlockFloat@{BCCIM\_WriteBlockFloat}!BCCIMaster.h@{BCCIMaster.h}}
-\doxyparagraph{\texorpdfstring{BCCIM\_WriteBlockFloat()}{BCCIM\_WriteBlockFloat()}}
-{\footnotesize\ttfamily Int16U BCCIM\+\_\+\+Write\+Block\+Float (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface,  }\item[{Int16U}]{Node,  }\item[{Int16U}]{Endpoint,  }\item[{p\+Float}]{Data,  }\item[{Int16U}]{Data\+Length }\end{DoxyParamCaption})}
-
-
-
-Запись блока(массива) данных со значениями типа данных float в регистр узла в CAN сети. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em Interface} & -\/ Указатель на структуру, хранящую параметры CAN-\/интерфейса (таймаут и функции обратного вызова). \\
-\hline
-{\em Node} & -\/ ID узла в CAN сети \\
-\hline
-{\em Endpoint} & -\/ Регистр начала массива \\
-\hline
-{\em Data} & -\/ Указатель на массив, который будет записан в узел \\
-\hline
-{\em Data\+Length} & -\/ Размер записываемого массива \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошла ошибка таймаута. 
-\end{DoxyReturn}
-\Hypertarget{_b_c_c_i_master_8h_ad360184a22152999091e8c955f9aacd3}\label{_b_c_c_i_master_8h_ad360184a22152999091e8c955f9aacd3} 
-\index{BCCIMaster.h@{BCCIMaster.h}!BCCIM\_WriteFloat@{BCCIM\_WriteFloat}}
-\index{BCCIM\_WriteFloat@{BCCIM\_WriteFloat}!BCCIMaster.h@{BCCIMaster.h}}
+\Hypertarget{_b_c_c_i_master_8c_ad360184a22152999091e8c955f9aacd3}\label{_b_c_c_i_master_8c_ad360184a22152999091e8c955f9aacd3} 
+\index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_WriteFloat@{BCCIM\_WriteFloat}}
+\index{BCCIM\_WriteFloat@{BCCIM\_WriteFloat}!BCCIMaster.c@{BCCIMaster.c}}
 \doxyparagraph{\texorpdfstring{BCCIM\_WriteFloat()}{BCCIM\_WriteFloat()}}
 {\footnotesize\ttfamily Int16U BCCIM\+\_\+\+Write\+Float (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface,  }\item[{Int16U}]{Node,  }\item[{Int16U}]{Register,  }\item[{float}]{Data }\end{DoxyParamCaption})}
 

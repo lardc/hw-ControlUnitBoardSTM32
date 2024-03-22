@@ -126,7 +126,7 @@ WARN_LOGFILE           =
 # Configuration options related to the input files
 #---------------------------------------------------------------------------
 
-INPUT                  = ./ ../hw-STM32-libs/
+INPUT                  = ./Firmware ../hw-STM32-libs/Interface ../hw-STM32-libs/Firmware
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.c \
                          *.cc \

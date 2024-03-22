@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MCU: /home/pumukun/Avocado_Test/hw-STM32-libs/Interface/BCCIMaster.h File Reference</title>
+<title>MCU: /home/pumukun/Avocado_Test/hw-STM32-libs/Interface/BCCIMaster.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -57,30 +57,40 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('_b_c_c_i_master_8h.html',''); initResizable(); });
+$(function(){initNavTree('_b_c_c_i_master_8c.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">BCCIMaster.h File Reference</div></div>
+  <div class="headertitle"><div class="title">BCCIMaster.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Бибиблиотека интерфейса Master BCCI.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;stdinc.h&quot;</code><br />
-<code>#include &quot;BCCITypes.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_b_c_c_i_master_8h.html">BCCIMaster.h</a>&quot;</code><br />
+<code>#include &quot;BCCIxParams.h&quot;</code><br />
+<code>#include &quot;CRC16.h&quot;</code><br />
+<code>#include &quot;SysConfig.h&quot;</code><br />
+<code>#include &quot;DeviceProfile.h&quot;</code><br />
+<code>#include &quot;ZwIWDG.h&quot;</code><br />
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_b_c_c_i_m___interface.html">pBCCIM_Interface</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a7928af9aba4fde96bba48b2a1fbf84fc" id="r_a7928af9aba4fde96bba48b2a1fbf84fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7928af9aba4fde96bba48b2a1fbf84fc">BCCIM_SendFrame</a> (pBCCIM_Interface Interface, Int16U Mailbox, pCANMessage Message, Int32U Node)</td></tr>
+<tr class="memdesc:a7928af9aba4fde96bba48b2a1fbf84fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправка CAN сообщения.  <br /></td></tr>
+<tr class="separator:a7928af9aba4fde96bba48b2a1fbf84fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c9b9172bd08449a92cbd7a4662d4244" id="r_a0c9b9172bd08449a92cbd7a4662d4244"><td class="memItemLeft" align="right" valign="top">Int16U&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c9b9172bd08449a92cbd7a4662d4244">BCCIM_WaitResponse</a> (pBCCIM_Interface Interface, Int16U Mailbox)</td></tr>
+<tr class="memdesc:a0c9b9172bd08449a92cbd7a4662d4244"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ожидание ответа от узла, полученного по мейлбоксу Mailbox.  <br /></td></tr>
+<tr class="separator:a0c9b9172bd08449a92cbd7a4662d4244"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e1b6ea80e464888929d2f2a0d0a6cf9" id="r_a3e1b6ea80e464888929d2f2a0d0a6cf9"><td class="memItemLeft" align="right" valign="top">Boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e1b6ea80e464888929d2f2a0d0a6cf9">BCCIM_HandleReadBlock16</a> (pBCCIM_Interface Interface)</td></tr>
+<tr class="memdesc:a3e1b6ea80e464888929d2f2a0d0a6cf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обработка получения блока данных из CAN сети.  <br /></td></tr>
+<tr class="separator:a3e1b6ea80e464888929d2f2a0d0a6cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d31d45247650bc06699ec28dc7f58fa" id="r_a9d31d45247650bc06699ec28dc7f58fa"><td class="memItemLeft" align="right" valign="top">Boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d31d45247650bc06699ec28dc7f58fa">BCCIM_HandleReadBlockFloat</a> (pBCCIM_Interface Interface)</td></tr>
+<tr class="memdesc:a9d31d45247650bc06699ec28dc7f58fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обработка получения блока(массива) данных с значениями типа float из CAN сети.  <br /></td></tr>
+<tr class="separator:a9d31d45247650bc06699ec28dc7f58fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfecdcedc5040e4936963a6becb60d09" id="r_adfecdcedc5040e4936963a6becb60d09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfecdcedc5040e4936963a6becb60d09">BCCIM_Init</a> (pBCCIM_Interface Interface, pBCCI_IOConfig IOConfig, Int32U MessageTimeoutTicks, volatile Int64U *pTimer)</td></tr>
 <tr class="memdesc:adfecdcedc5040e4936963a6becb60d09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация Master BCCI интерфейса - сетап Mailbox для записи и чтения, запись Mailbox в IOConfig.  <br /></td></tr>
 <tr class="separator:adfecdcedc5040e4936963a6becb60d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -93,9 +103,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a458b54be2dcb0575b6fba617c85b2276" id="r_a458b54be2dcb0575b6fba617c85b2276"><td class="memItemLeft" align="right" valign="top">Int16U&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a458b54be2dcb0575b6fba617c85b2276">BCCIM_ReadFloat</a> (pBCCIM_Interface Interface, Int16U Node, Int16U Register, float *Data)</td></tr>
 <tr class="memdesc:a458b54be2dcb0575b6fba617c85b2276"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение 32-битного float значения из регистра узла в CAN сети.  <br /></td></tr>
 <tr class="separator:a458b54be2dcb0575b6fba617c85b2276"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf61f67c03a06fccac636a6f4a4371db" id="r_acf61f67c03a06fccac636a6f4a4371db"><td class="memItemLeft" align="right" valign="top">Int16U&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf61f67c03a06fccac636a6f4a4371db">BCCIM_ReadLimitFloat</a> (pBCCIM_Interface Interface, Int16U Node, Int16U Register, Boolean ReadHighLimit, float *Data)</td></tr>
-<tr class="memdesc:acf61f67c03a06fccac636a6f4a4371db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение 32-битного float значения из регистра узла в CAN сети.  <br /></td></tr>
-<tr class="separator:acf61f67c03a06fccac636a6f4a4371db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4709098f3f33e65719018d2a400e0451" id="r_a4709098f3f33e65719018d2a400e0451"><td class="memItemLeft" align="right" valign="top">Int16U&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4709098f3f33e65719018d2a400e0451">BCCIM_ReadLimitFloat</a> (pBCCIM_Interface Interface, Int16U Node, Int16U Register, Boolean ReadHighLimit, float *Data)</td></tr>
+<tr class="memdesc:a4709098f3f33e65719018d2a400e0451"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение 32-битного float значения из регистра узла в CAN сети.  <br /></td></tr>
+<tr class="separator:a4709098f3f33e65719018d2a400e0451"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a971e1f5a093bcbc044dd241d0a3d229d" id="r_a971e1f5a093bcbc044dd241d0a3d229d"><td class="memItemLeft" align="right" valign="top">Int16U&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a971e1f5a093bcbc044dd241d0a3d229d">BCCIM_Write16</a> (pBCCIM_Interface Interface, Int16U Node, Int16U Register, Int16U Data)</td></tr>
 <tr class="memdesc:a971e1f5a093bcbc044dd241d0a3d229d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запись 16-битного значения в регистр узла в CAN сети.  <br /></td></tr>
 <tr class="separator:a971e1f5a093bcbc044dd241d0a3d229d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,9 +124,6 @@ Functions</h2></td></tr>
 <tr class="memitem:aa01eaa7aae3ec2b1f9208ae8205a95d8" id="r_aa01eaa7aae3ec2b1f9208ae8205a95d8"><td class="memItemLeft" align="right" valign="top">Int16U&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa01eaa7aae3ec2b1f9208ae8205a95d8">BCCIM_ReadBlockFloat</a> (pBCCIM_Interface Interface, Int16U Node, Int16U Endpoint)</td></tr>
 <tr class="memdesc:aa01eaa7aae3ec2b1f9208ae8205a95d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение блока(массива) данных со значениями типа данных float из регистра узла в CAN сети.  <br /></td></tr>
 <tr class="separator:aa01eaa7aae3ec2b1f9208ae8205a95d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d7ef3da1bd300d760d417a664823250" id="r_a7d7ef3da1bd300d760d417a664823250"><td class="memItemLeft" align="right" valign="top">Int16U&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d7ef3da1bd300d760d417a664823250">BCCIM_WriteBlockFloat</a> (pBCCIM_Interface Interface, Int16U Node, Int16U Endpoint, pFloat Data, Int16U DataLength)</td></tr>
-<tr class="memdesc:a7d7ef3da1bd300d760d417a664823250"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запись блока(массива) данных со значениями типа данных float в регистр узла в CAN сети.  <br /></td></tr>
-<tr class="separator:a7d7ef3da1bd300d760d417a664823250"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Бибиблиотека интерфейса Master BCCI. </p>
@@ -155,6 +162,58 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>ERR_NO_ERROR или ERR_TIMEOUT, если произошла ошибка таймаута. </dd></dl>
+
+</div>
+</div>
+<a id="a3e1b6ea80e464888929d2f2a0d0a6cf9" name="a3e1b6ea80e464888929d2f2a0d0a6cf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e1b6ea80e464888929d2f2a0d0a6cf9">&#9670;&#160;</a></span>BCCIM_HandleReadBlock16()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Boolean BCCIM_HandleReadBlock16 </td>
+          <td>(</td>
+          <td class="paramtype">pBCCIM_Interface</td>          <td class="paramname"><span class="paramname"><em>Interface</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Обработка получения блока данных из CAN сети. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Interface</td><td>- Указатель на структуру, хранящую параметры CAN-интерфейса (таймаут и функции обратного вызова). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>TRUE, если блок данных получен, FALSE в противном случае. </dd></dl>
+
+</div>
+</div>
+<a id="a9d31d45247650bc06699ec28dc7f58fa" name="a9d31d45247650bc06699ec28dc7f58fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d31d45247650bc06699ec28dc7f58fa">&#9670;&#160;</a></span>BCCIM_HandleReadBlockFloat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Boolean BCCIM_HandleReadBlockFloat </td>
+          <td>(</td>
+          <td class="paramtype">pBCCIM_Interface</td>          <td class="paramname"><span class="paramname"><em>Interface</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Обработка получения блока(массива) данных с значениями типа float из CAN сети. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Interface</td><td>- Указатель на структуру, хранящую параметры CAN-интерфейса (таймаут и функции обратного вызова). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>TRUE, если блок данных получен, FALSE в противном случае. </dd></dl>
 
 </div>
 </div>
@@ -408,14 +467,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="acf61f67c03a06fccac636a6f4a4371db" name="acf61f67c03a06fccac636a6f4a4371db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf61f67c03a06fccac636a6f4a4371db">&#9670;&#160;</a></span>BCCIM_ReadLimitFloat()</h2>
+<a id="a4709098f3f33e65719018d2a400e0451" name="a4709098f3f33e65719018d2a400e0451"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4709098f3f33e65719018d2a400e0451">&#9670;&#160;</a></span>BCCIM_ReadLimitFloat()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Int16U BCCIM_ReadLimitFloat </td>
+          <td class="memname">BCCIM_ReadLimitFloat </td>
           <td>(</td>
           <td class="paramtype">pBCCIM_Interface</td>          <td class="paramname"><span class="paramname"><em>Interface</em>, </span></td>
         </tr>
@@ -454,6 +513,86 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>ERR_NO_ERROR или ERR_TIMEOUT, если произошла ошибка таймаута. </dd></dl>
+
+</div>
+</div>
+<a id="a7928af9aba4fde96bba48b2a1fbf84fc" name="a7928af9aba4fde96bba48b2a1fbf84fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7928af9aba4fde96bba48b2a1fbf84fc">&#9670;&#160;</a></span>BCCIM_SendFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BCCIM_SendFrame </td>
+          <td>(</td>
+          <td class="paramtype">pBCCIM_Interface</td>          <td class="paramname"><span class="paramname"><em>Interface</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int16U</td>          <td class="paramname"><span class="paramname"><em>Mailbox</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">pCANMessage</td>          <td class="paramname"><span class="paramname"><em>Message</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int32U</td>          <td class="paramname"><span class="paramname"><em>Node</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Отправка CAN сообщения. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Interface</td><td>- Указатель на структуру, хранящую параметры CAN-интерфейса (таймаут и функции обратного вызова). </td></tr>
+    <tr><td class="paramname">Mailbox</td><td>- ID мейлбокса внутри узла в который будет отправлено сообщение. </td></tr>
+    <tr><td class="paramname">Message</td><td>- Указатель на структуру CAN сообщения. </td></tr>
+    <tr><td class="paramname">Node</td><td>- ID узла в CAN сети. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0c9b9172bd08449a92cbd7a4662d4244" name="a0c9b9172bd08449a92cbd7a4662d4244"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c9b9172bd08449a92cbd7a4662d4244">&#9670;&#160;</a></span>BCCIM_WaitResponse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Int16U BCCIM_WaitResponse </td>
+          <td>(</td>
+          <td class="paramtype">pBCCIM_Interface</td>          <td class="paramname"><span class="paramname"><em>Interface</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int16U</td>          <td class="paramname"><span class="paramname"><em>Mailbox</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ожидание ответа от узла, полученного по мейлбоксу Mailbox. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Interface</td><td>- Указатель на структуру, хранящую параметры CAN-интерфейса (таймаут и функции обратного вызова). </td></tr>
+    <tr><td class="paramname">Mailbox</td><td>- ID мейлбокса внутри узла, с которым собираемся общаться, в который будет отправлено сообщение. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ERR_NO_ERROR или ERR_TIMEOUT, если произошла ошибка таймаута. </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">ERR_NO_ERROR</td><td>- Ответ получен. </td></tr>
+    <tr><td class="paramname">ERR_TIMEOUT</td><td>- Тайм-аут </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -549,55 +688,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7d7ef3da1bd300d760d417a664823250" name="a7d7ef3da1bd300d760d417a664823250"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d7ef3da1bd300d760d417a664823250">&#9670;&#160;</a></span>BCCIM_WriteBlockFloat()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Int16U BCCIM_WriteBlockFloat </td>
-          <td>(</td>
-          <td class="paramtype">pBCCIM_Interface</td>          <td class="paramname"><span class="paramname"><em>Interface</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Int16U</td>          <td class="paramname"><span class="paramname"><em>Node</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Int16U</td>          <td class="paramname"><span class="paramname"><em>Endpoint</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">pFloat</td>          <td class="paramname"><span class="paramname"><em>Data</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Int16U</td>          <td class="paramname"><span class="paramname"><em>DataLength</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Запись блока(массива) данных со значениями типа данных float в регистр узла в CAN сети. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Interface</td><td>- Указатель на структуру, хранящую параметры CAN-интерфейса (таймаут и функции обратного вызова). </td></tr>
-    <tr><td class="paramname">Node</td><td>- ID узла в CAN сети </td></tr>
-    <tr><td class="paramname">Endpoint</td><td>- Регистр начала массива </td></tr>
-    <tr><td class="paramname">Data</td><td>- Указатель на массив, который будет записан в узел </td></tr>
-    <tr><td class="paramname">DataLength</td><td>- Размер записываемого массива </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>ERR_NO_ERROR или ERR_TIMEOUT, если произошла ошибка таймаута. </dd></dl>
-
-</div>
-</div>
 <a id="ad360184a22152999091e8c955f9aacd3" name="ad360184a22152999091e8c955f9aacd3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad360184a22152999091e8c955f9aacd3">&#9670;&#160;</a></span>BCCIM_WriteFloat()</h2>
 
@@ -646,7 +736,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_36bc10f345017202a7c91d6a642f942a.html">hw-STM32-libs</a></li><li class="navelem"><a class="el" href="dir_0371304da83c2cf4e33ed2a836da088f.html">Interface</a></li><li class="navelem"><a class="el" href="_b_c_c_i_master_8h.html">BCCIMaster.h</a></li>
+    <li class="navelem"><a class="el" href="dir_36bc10f345017202a7c91d6a642f942a.html">hw-STM32-libs</a></li><li class="navelem"><a class="el" href="dir_0371304da83c2cf4e33ed2a836da088f.html">Interface</a></li><li class="navelem"><a class="el" href="_b_c_c_i_master_8c.html">BCCIMaster.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>

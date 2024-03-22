@@ -1,3 +1,10 @@
 \indexentry{MCU@{MCU}|hyperpage}{1}
-\indexentry{Firmware/Source/Controller/Controller.h@{Firmware/Source/Controller/Controller.h}|hyperpage}{1}
-\indexentry{Firmware/Source/Platform/DeviceObjectDictionary.h@{Firmware/Source/Platform/DeviceObjectDictionary.h}|hyperpage}{2}
+\indexentry{pBCCIM\_Interface@{pBCCIM\_Interface}|hyperpage}{2}
+\indexentry{Firmware/Source/Controller/Controller.h@{Firmware/Source/Controller/Controller.h}|hyperpage}{2}
+\indexentry{Firmware/Source/Platform/DeviceObjectDictionary.h@{Firmware/Source/Platform/DeviceObjectDictionary.h}|hyperpage}{3}
+\indexentry{/home/pumukun/Avocado\_Test/hw-\/STM32-\/libs/Interface/BCCIMaster.c@{/home/pumukun/Avocado\_Test/hw-\/STM32-\/libs/Interface/BCCIMaster.c}|hyperpage}{4}
+\indexentry{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_Init@{BCCIM\_Init}|hyperpage}{5}
+\indexentry{BCCIM\_Init@{BCCIM\_Init}!BCCIMaster.c@{BCCIMaster.c}|hyperpage}{5}
+\indexentry{/home/pumukun/Avocado\_Test/hw-\/STM32-\/libs/Interface/BCCIMaster.h@{/home/pumukun/Avocado\_Test/hw-\/STM32-\/libs/Interface/BCCIMaster.h}|hyperpage}{5}
+\indexentry{BCCIMaster.h@{BCCIMaster.h}!BCCIM\_Init@{BCCIM\_Init}|hyperpage}{6}
+\indexentry{BCCIM\_Init@{BCCIM\_Init}!BCCIMaster.h@{BCCIMaster.h}|hyperpage}{6}

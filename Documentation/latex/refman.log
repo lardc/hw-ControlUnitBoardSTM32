@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.3.19)  19 MAR 2024 16:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.3.12)  22 MAR 2024 14:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -768,7 +768,7 @@ LaTeX Font Warning: Font shape `T2A/phv/m/n' undefined
 Package: babel 2023/02/13 3.86 The Babel package
 \babel@savecnt=\count327
 \U@D=\dimen198
-\l@unhyphenated=\language3
+\l@unhyphenated=\language87
 
 (/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read4
@@ -777,19 +777,10 @@ Package: babel 2023/02/13 3.86 The Babel package
 (/usr/share/texmf-dist/tex/generic/babel-russian/russianb.ldf
 File: russianb.ldf 2021/01/10 1.3m Russian support for the Babel system
 Language: russian 2020/09/09 1.3k Russian support for the Babel system
-
-
-Package babel Warning: No hyphenation patterns were preloaded for
-(babel)                the language 'Russian' into the format.
-(babel)                Please, configure your TeX system to add them and
-(babel)                rebuild the format. Now I will use the patterns
-(babel)                preloaded for \language=0 instead on input line 32.
-
-Package babel Info: Hyphen rules for 'russian' set to \l@english
-(babel)             (\language0). Reported on input line 33.
 Package babel Info: Making " an active character on input line 124.
 Package babel Info: Default for \cyrdash is provided on input line 163.
-)) (/usr/share/texmf-dist/tex/generic/babel/locale/ru/babel-russian.tex
+))
+(/usr/share/texmf-dist/tex/generic/babel/locale/ru/babel-russian.tex
 Package babel Info: Importing font and identification data for russian
 (babel)             from babel-ru.ini. Reported on input line 11.
 )
@@ -1105,39 +1096,64 @@ Package hyperref Info: Option `pageanchor' set `true' on input line 206.
 LaTeX Font Warning: Font shape `T2A/phv/m/it' undefined
 (Font)              using `T2A/phv/m/n' instead on input line 6.
 
-) (./files.tex) (./_controller_8h.tex
-LaTeX Font Info:    Trying to load font information for T2A+pcr on input line 8
+) (./annotated.tex) (./files.tex
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 8.99994pt on input line 3.
+ [1]) (./struct_b_c_c_i_m___interface.tex
+LaTeX Font Info:    Trying to load font information for T2A+pcr on input line 5
 .
-LaTeX Font Info:    No file T2Apcr.fd. on input line 8.
+LaTeX Font Info:    No file T2Apcr.fd. on input line 5.
 
 
 LaTeX Font Warning: Font shape `T2A/pcr/m/n' undefined
-(Font)              using `T2A/cmr/m/n' instead on input line 8.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 8--9
-
- []
+(Font)              using `T2A/cmr/m/n' instead on input line 5.
 
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 1
-2.
+0.
 (/usr/share/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 12.
+(Font)              scaled to size 8.99994pt on input line 10.
 )
-(./_device_object_dictionary_8h.tex
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 1.
- [1] [2{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}]) [3] [4
+(./hw-_control_unit_board_2_firmware_2_source_2_controller_2_controller_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
-] (./refman.ind
-Overfull \hbox (16.90279pt too wide) in paragraph at lines 4--6
-[]\T2A/phv/b/n/10 Firmware/Source/Platform/DeviceObjectDictionary.h,
  []
 
-[5
+[2{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}])
+(./hw-_control_unit_board_2_firmware_2_source_2_platform_2_device_object_dictio
+nary_8h.tex [3]) (./_b_c_c_i_master_8c.tex
+Underfull \hbox (badness 10000) in paragraph at lines 8--14
+
+ []
+
+
+LaTeX Font Warning: Font shape `T2A/pcr/m/it' undefined
+(Font)              using `T2A/pcr/m/n' instead on input line 31.
+
+[4]) (./_b_c_c_i_master_8h.tex
+Underfull \hbox (badness 10000) in paragraph at lines 8--10
+
+ []
+
+[5]) [6] (./refman.ind
+Underfull \hbox (badness 10000) in paragraph at lines 3--5
+[]\T2A/phv/bc/n/10 /home/pumukun/Avocado_Test/hw-STM32-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--7
+[]\T2A/phv/bc/n/10 /home/pumukun/Avocado_Test/hw-STM32-
+ []
+
+
+Overfull \hbox (16.90279pt too wide) in paragraph at lines 21--23
+[]\T2A/phv/bc/n/10 Firmware/Source/Platform/DeviceObjectDictionary.h,
+ []
+
+[7
+
 
 
 ]) (./refman.aux)
@@ -1145,26 +1161,31 @@ Overfull \hbox (16.90279pt too wide) in paragraph at lines 4--6
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: A61CCBA437552A034F294E6AB696A35D;1950.
+(rerunfilecheck)             Checksum: C8FD6E7E8AE94A4234413665F7410B77;4730.
  ) 
 Here is how much of TeX's memory you used:
- 19933 strings out of 477985
- 321948 string characters out of 5840058
- 1874388 words of memory out of 5000000
- 39727 multiletter control sequences out of 15000+600000
- 527904 words of font info for 68 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 101i,15n,117p,506b,695s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/t
-exmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf-dist/fonts
-/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/c
-m-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm120
-0.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/sha
-re/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on refman.pdf (6 pages, 133821 bytes).
+ 20039 strings out of 476025
+ 327901 string characters out of 5796532
+ 1875388 words of memory out of 5000000
+ 40043 multiletter control sequences out of 15000+600000
+ 530467 words of font info for 76 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 101i,15n,117p,647b,751s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf-dist
+/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/pu
+blic/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/s
+frm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></u
+sr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-
+dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on refman.pdf (8 pages, 218681 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
- 155 compressed objects within 2 object streams
- 53 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 311 PDF objects out of 1000 (max. 8388607)
+ 272 compressed objects within 3 object streams
+ 82 named destinations out of 1000 (max. 500000)
+ 169 words of extra memory for PDF output out of 10000 (max. 10000000)
 

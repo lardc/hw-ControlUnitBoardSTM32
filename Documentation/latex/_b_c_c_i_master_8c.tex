@@ -17,11 +17,15 @@
 void \mbox{\hyperlink{_b_c_c_i_master_8c_a7928af9aba4fde96bba48b2a1fbf84fc}{BCCIM\+\_\+\+Send\+Frame}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Mailbox, p\+CANMessage Message, Int32U Node)
 \begin{DoxyCompactList}\small\item\em Отправка CAN сообщения. \end{DoxyCompactList}\item 
 Int16U \mbox{\hyperlink{_b_c_c_i_master_8c_a0c9b9172bd08449a92cbd7a4662d4244}{BCCIM\+\_\+\+Wait\+Response}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Mailbox)
-\begin{DoxyCompactList}\small\item\em Ожидание ответа от узла, полученного по мейлбоксу Mailbox. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Проверка MBOX\+\_\+\+ERR\+\_\+A на то, пришла ли в него ошибка. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_b_c_c_i_master_8c_a6ca88ebf4d143ee547dfbe9690020f70}{BCCIM\+\_\+\+Read\+Block16\+Subfunction}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Endpoint, Boolean Start)
+\begin{DoxyCompactList}\small\item\em Чтение блока(массива) данных из узла в CAN сети. \end{DoxyCompactList}\item 
 Boolean \mbox{\hyperlink{_b_c_c_i_master_8c_a3e1b6ea80e464888929d2f2a0d0a6cf9}{BCCIM\+\_\+\+Handle\+Read\+Block16}} (p\+BCCIM\+\_\+\+Interface Interface)
-\begin{DoxyCompactList}\small\item\em Обработка получения блока данных из CAN сети. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Обработка получения блока(массива) данных из CAN сети. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_b_c_c_i_master_8c_a793daec7fed48679248c9e89110d9ab0}{BCCIM\+\_\+\+Read\+Block\+Float\+Subfunction}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Endpoint, Boolean Start)
+\begin{DoxyCompactList}\small\item\em Дополнительная функция Чтения блока(массива) данных типа float из узла в CAN сети. \end{DoxyCompactList}\item 
 Boolean \mbox{\hyperlink{_b_c_c_i_master_8c_a9d31d45247650bc06699ec28dc7f58fa}{BCCIM\+\_\+\+Handle\+Read\+Block\+Float}} (p\+BCCIM\+\_\+\+Interface Interface)
-\begin{DoxyCompactList}\small\item\em Обработка получения блока(массива) данных с значениями типа float из CAN сети. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Обработка получения блока(массива) данных типа float из CAN сети. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_b_c_c_i_master_8c_adfecdcedc5040e4936963a6becb60d09}{BCCIM\+\_\+\+Init}} (p\+BCCIM\+\_\+\+Interface Interface, p\+BCCI\+\_\+\+IOConfig IOConfig, Int32U Message\+Timeout\+Ticks, volatile Int64U \texorpdfstring{$\ast$}{*}p\+Timer)
 \begin{DoxyCompactList}\small\item\em Инициализация Master BCCI интерфейса -\/ сетап Mailbox для записи и чтения, запись Mailbox в IOConfig. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_b_c_c_i_master_8c_a2ddb5f7220206027b6a1aee0b4ab62dc}{BCCIM\+\_\+\+Init\+With\+Node\+ID}} (p\+BCCIM\+\_\+\+Interface Interface, p\+BCCI\+\_\+\+IOConfig IOConfig, Int32U Message\+Timeout\+Ticks, volatile Int64U \texorpdfstring{$\ast$}{*}p\+Timer, Int16U Node\+ID)
@@ -43,7 +47,22 @@ Int16U \mbox{\hyperlink{_b_c_c_i_master_8c_a497dd58ae30b4885ffef0f19c9f13e48}{BC
 Int16U \mbox{\hyperlink{_b_c_c_i_master_8c_a31af771d1e19aee4c60315b539b2f4aa}{BCCIM\+\_\+\+Write\+Block16}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Endpoint, p\+Int16U Data, Int16U Data\+Length)
 \begin{DoxyCompactList}\small\item\em Запись блока(массива) данных в узел в CAN сети. \end{DoxyCompactList}\item 
 Int16U \mbox{\hyperlink{_b_c_c_i_master_8c_aa01eaa7aae3ec2b1f9208ae8205a95d8}{BCCIM\+\_\+\+Read\+Block\+Float}} (p\+BCCIM\+\_\+\+Interface Interface, Int16U Node, Int16U Endpoint)
-\begin{DoxyCompactList}\small\item\em Чтение блока(массива) данных со значениями типа данных float из регистра узла в CAN сети. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Чтение блока(массива) данных со значениями типа данных float из регистра узла в CAN сети. \end{DoxyCompactList}\item 
+\Hypertarget{_b_c_c_i_master_8c_ab43727633d067a6f818e74e89ee550d3}\label{_b_c_c_i_master_8c_ab43727633d067a6f818e74e89ee550d3} 
+Int16U {\bfseries BCCIM\+\_\+\+Get\+Saved\+Error\+Details} ()
+\begin{DoxyCompactList}\small\item\em Возвращает сохраненную информацию об ошибке чтения или записи \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_b_c_c_i_master_8c_af8964f005dd6034bee4202b77688bf0e}\label{_b_c_c_i_master_8c_af8964f005dd6034bee4202b77688bf0e} 
+Int16U {\bfseries BCCIM\+\_\+\+Read\+Block\+Buffer\+Counter}
+\begin{DoxyCompactList}\small\item\em Переменная для хранения размера блока(массива) данных. \end{DoxyCompactList}\item 
+\Hypertarget{_b_c_c_i_master_8c_a12db6b763478b1f51df6f799565d1147}\label{_b_c_c_i_master_8c_a12db6b763478b1f51df6f799565d1147} 
+float {\bfseries BCCIM\+\_\+\+Read\+Block\+Float\+Buffer} \mbox{[}5000\mbox{]}
+\begin{DoxyCompactList}\small\item\em Переменная для хранения блока(массива) данных типа float. \end{DoxyCompactList}\item 
+\Hypertarget{_b_c_c_i_master_8c_a9483918af0600b4cf231e6f84c48c9f8}\label{_b_c_c_i_master_8c_a9483918af0600b4cf231e6f84c48c9f8} 
+p\+Int16U {\bfseries BCCIM\+\_\+\+Read\+Block16\+Buffer} = (p\+Int16U)\mbox{\hyperlink{_b_c_c_i_master_8c_a12db6b763478b1f51df6f799565d1147}{BCCIM\+\_\+\+Read\+Block\+Float\+Buffer}}
+\begin{DoxyCompactList}\small\item\em Переменная для хранения блока(массива) данных. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsubsection{Detailed Description}
@@ -82,7 +101,7 @@ ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошл�
 
 
 
-Обработка получения блока данных из CAN сети. 
+Обработка получения блока(массива) данных из CAN сети. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -90,7 +109,7 @@ ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошл�
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-TRUE, если блок данных получен, FALSE в противном случае. 
+TRUE, если данные читаются впервые, FALSE в противном случае. 
 \end{DoxyReturn}
 \Hypertarget{_b_c_c_i_master_8c_a9d31d45247650bc06699ec28dc7f58fa}\label{_b_c_c_i_master_8c_a9d31d45247650bc06699ec28dc7f58fa} 
 \index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_HandleReadBlockFloat@{BCCIM\_HandleReadBlockFloat}}
@@ -100,8 +119,18 @@ TRUE, если блок данных получен, FALSE в противном
 
 
 
-Обработка получения блока(массива) данных с значениями типа float из CAN сети. 
+Обработка получения блока(массива) данных типа float из CAN сети. 
 
+Обработка получения блока(массива) данных с значениями типа float из CAN сети.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Interface} & -\/ Указатель на структуру, хранящую параметры CAN-\/интерфейса (таймаут и функции обратного вызова). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+TRUE, если данные читаются впервые, FALSE в противном случае.
+\end{DoxyReturn}
 
 \begin{DoxyParams}{Parameters}
 {\em Interface} & -\/ Указатель на структуру, хранящую параметры CAN-\/интерфейса (таймаут и функции обратного вызова). \\
@@ -200,6 +229,27 @@ ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошл�
 \begin{DoxyReturn}{Returns}
 ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошла ошибка таймаута. 
 \end{DoxyReturn}
+\Hypertarget{_b_c_c_i_master_8c_a6ca88ebf4d143ee547dfbe9690020f70}\label{_b_c_c_i_master_8c_a6ca88ebf4d143ee547dfbe9690020f70} 
+\index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_ReadBlock16Subfunction@{BCCIM\_ReadBlock16Subfunction}}
+\index{BCCIM\_ReadBlock16Subfunction@{BCCIM\_ReadBlock16Subfunction}!BCCIMaster.c@{BCCIMaster.c}}
+\doxyparagraph{\texorpdfstring{BCCIM\_ReadBlock16Subfunction()}{BCCIM\_ReadBlock16Subfunction()}}
+{\footnotesize\ttfamily void BCCIM\+\_\+\+Read\+Block16\+Subfunction (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface,  }\item[{Int16U}]{Node,  }\item[{Int16U}]{Endpoint,  }\item[{Boolean}]{Start }\end{DoxyParamCaption})}
+
+
+
+Чтение блока(массива) данных из узла в CAN сети. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Interface} & -\/ Указатель на структуру, хранящую параметры CAN-\/интерфейса (таймаут и функции обратного вызова). \\
+\hline
+{\em Node} & -\/ ID узла в CAN сети \\
+\hline
+{\em Endpoint} & -\/ Регистр начала массива \\
+\hline
+{\em Start} & -\/ Флаг первого вызова функции \\
+\hline
+\end{DoxyParams}
 \Hypertarget{_b_c_c_i_master_8c_aa01eaa7aae3ec2b1f9208ae8205a95d8}\label{_b_c_c_i_master_8c_aa01eaa7aae3ec2b1f9208ae8205a95d8} 
 \index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_ReadBlockFloat@{BCCIM\_ReadBlockFloat}}
 \index{BCCIM\_ReadBlockFloat@{BCCIM\_ReadBlockFloat}!BCCIMaster.c@{BCCIMaster.c}}
@@ -222,6 +272,27 @@ ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошл�
 \begin{DoxyReturn}{Returns}
 ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошла ошибка таймаута. 
 \end{DoxyReturn}
+\Hypertarget{_b_c_c_i_master_8c_a793daec7fed48679248c9e89110d9ab0}\label{_b_c_c_i_master_8c_a793daec7fed48679248c9e89110d9ab0} 
+\index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_ReadBlockFloatSubfunction@{BCCIM\_ReadBlockFloatSubfunction}}
+\index{BCCIM\_ReadBlockFloatSubfunction@{BCCIM\_ReadBlockFloatSubfunction}!BCCIMaster.c@{BCCIMaster.c}}
+\doxyparagraph{\texorpdfstring{BCCIM\_ReadBlockFloatSubfunction()}{BCCIM\_ReadBlockFloatSubfunction()}}
+{\footnotesize\ttfamily void BCCIM\+\_\+\+Read\+Block\+Float\+Subfunction (\begin{DoxyParamCaption}\item[{p\+BCCIM\+\_\+\+Interface}]{Interface,  }\item[{Int16U}]{Node,  }\item[{Int16U}]{Endpoint,  }\item[{Boolean}]{Start }\end{DoxyParamCaption})}
+
+
+
+Дополнительная функция Чтения блока(массива) данных типа float из узла в CAN сети. 
+
+При первом чтенич данных (Start = true)\+: Происходит очистка мейлбоксов и сохранение endpoint. 
+\begin{DoxyParams}{Parameters}
+{\em Interface} & -\/ Указатель на структуру, хранящую параметры CAN-\/интерфейса (таймаут и функции обратного вызова). \\
+\hline
+{\em Node} & -\/ ID узла в CAN сети \\
+\hline
+{\em Endpoint} & -\/ Регистр начала массива \\
+\hline
+{\em Start} & -\/ Флаг первого вызова функции \\
+\hline
+\end{DoxyParams}
 \Hypertarget{_b_c_c_i_master_8c_a458b54be2dcb0575b6fba617c85b2276}\label{_b_c_c_i_master_8c_a458b54be2dcb0575b6fba617c85b2276} 
 \index{BCCIMaster.c@{BCCIMaster.c}!BCCIM\_ReadFloat@{BCCIM\_ReadFloat}}
 \index{BCCIM\_ReadFloat@{BCCIM\_ReadFloat}!BCCIMaster.c@{BCCIMaster.c}}
@@ -301,8 +372,20 @@ ERR\+\_\+\+NO\+\_\+\+ERROR или ERR\+\_\+\+TIMEOUT, если произошл�
 
 
 
-Ожидание ответа от узла, полученного по мейлбоксу Mailbox. 
+Проверка MBOX\+\_\+\+ERR\+\_\+A на то, пришла ли в него ошибка. 
 
+Ожидание ответа от узла, полученного по мейлбоксу Mailbox.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Interface} & -\/ Указатель на структуру, хранящую параметры CAN-\/интерфейса (таймаут и функции обратного вызова). \\
+\hline
+{\em Mailbox} & -\/ ID мейлбокса внутри узла в котором будет ожидаться ответ. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ERR\+\_\+\+NO\+\_\+\+ERROR, если ответ получен, иначе ERR\+\_\+\+TIMEOUT.
+\end{DoxyReturn}
 
 \begin{DoxyParams}{Parameters}
 {\em Interface} & -\/ Указатель на структуру, хранящую параметры CAN-\/интерфейса (таймаут и функции обратного вызова). \\

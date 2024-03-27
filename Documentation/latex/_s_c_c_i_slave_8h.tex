@@ -1,0 +1,73 @@
+\doxysubsection{/home/pumukun/\+Avocado\+\_\+\+Test/hw-\/\+STM32-\/libs/\+Interface/\+SCCISlave.h File Reference}
+\hypertarget{_s_c_c_i_slave_8h}{}\label{_s_c_c_i_slave_8h}\index{/home/pumukun/Avocado\_Test/hw-\/STM32-\/libs/Interface/SCCISlave.h@{/home/pumukun/Avocado\_Test/hw-\/STM32-\/libs/Interface/SCCISlave.h}}
+
+
+SCCI-\/\+Slave communication interface.  
+
+
+{\ttfamily \#include "{}stdinc.\+h"{}}\newline
+{\ttfamily \#include "{}SCCIParams.\+h"{}}\newline
+{\ttfamily \#include "{}x\+CCICommon.\+h"{}}\newline
+{\ttfamily \#include "{}SCCITypes.\+h"{}}\newline
+{\ttfamily \#include "{}Data\+Table.\+h"{}}\newline
+\doxysubsubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_s_c_c_i_slave_8h_a671d73966243374a38db3dcbc3f0fbd3}{SCCI\+\_\+\+Init}} (p\+SCCI\+\_\+\+Interface Interface, p\+SCCI\+\_\+\+IOConfig IOConfig, px\+CCI\+\_\+\+Service\+Config Service\+Config, p\+Int16U Data\+Table, Int16U Data\+Table\+Size, Int32U Message\+Timeout\+Ticks, void \texorpdfstring{$\ast$}{*}Argument\+For\+Callback)
+\begin{DoxyCompactList}\small\item\em Инициализация Slave SCCI интерфейса -\/ установка всех параметров по умолчанию, получение дата тейбла. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_s_c_c_i_slave_8h_ab357426c8e3599fc987c067d786cc4d6}{SCCI\+\_\+\+Process}} (p\+SCCI\+\_\+\+Interface Interface, Int64U Current\+Tick\+Count, Boolean Mask\+State\+Change\+Operations)
+\begin{DoxyCompactList}\small\item\em Передача пакетов из таблицы данных в интерфейс \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+SCCI-\/\+Slave communication interface. 
+
+
+
+\doxysubsubsection{Function Documentation}
+\Hypertarget{_s_c_c_i_slave_8h_a671d73966243374a38db3dcbc3f0fbd3}\label{_s_c_c_i_slave_8h_a671d73966243374a38db3dcbc3f0fbd3} 
+\index{SCCISlave.h@{SCCISlave.h}!SCCI\_Init@{SCCI\_Init}}
+\index{SCCI\_Init@{SCCI\_Init}!SCCISlave.h@{SCCISlave.h}}
+\doxyparagraph{\texorpdfstring{SCCI\_Init()}{SCCI\_Init()}}
+{\footnotesize\ttfamily void SCCI\+\_\+\+Init (\begin{DoxyParamCaption}\item[{p\+SCCI\+\_\+\+Interface}]{Interface,  }\item[{p\+SCCI\+\_\+\+IOConfig}]{IOConfig,  }\item[{px\+CCI\+\_\+\+Service\+Config}]{Service\+Config,  }\item[{p\+Int16U}]{Data\+Table,  }\item[{Int16U}]{Data\+Table\+Size,  }\item[{Int32U}]{Message\+Timeout\+Ticks,  }\item[{void \texorpdfstring{$\ast$}{*}}]{Argument\+For\+Callback }\end{DoxyParamCaption})}
+
+
+
+Инициализация Slave SCCI интерфейса -\/ установка всех параметров по умолчанию, получение дата тейбла. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Interface} & -\/ Указатель на структуру, хранящую дата тейбл, таймеры таймаута. \\
+\hline
+{\em IOConfig} & -\/ Указатель на структуру, содержащую функции обратного вызова. Эти функции передаются в интерфейс. \\
+\hline
+{\em Service\+Config} & -\/ Указатель на структуру, хранящую параметры службы SCCI \\
+\hline
+{\em Data\+Table} & -\/ Указатель на дата тейбл \\
+\hline
+{\em Data\+Table\+Size} & -\/ Размер дата тейбла. \\
+\hline
+{\em Message\+Timeout\+Ticks} & -\/ Величина таймаута при обмене сообщениями по rs232, в миллисекундах \\
+\hline
+{\em Argument\+For\+Callback} & -\/ Указатель на аргумент, передаваемый в функцию обратного вызова \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_s_c_c_i_slave_8h_ab357426c8e3599fc987c067d786cc4d6}\label{_s_c_c_i_slave_8h_ab357426c8e3599fc987c067d786cc4d6} 
+\index{SCCISlave.h@{SCCISlave.h}!SCCI\_Process@{SCCI\_Process}}
+\index{SCCI\_Process@{SCCI\_Process}!SCCISlave.h@{SCCISlave.h}}
+\doxyparagraph{\texorpdfstring{SCCI\_Process()}{SCCI\_Process()}}
+{\footnotesize\ttfamily void SCCI\+\_\+\+Process (\begin{DoxyParamCaption}\item[{p\+SCCI\+\_\+\+Interface}]{Interface,  }\item[{Int64U}]{Current\+Tick\+Count,  }\item[{Boolean}]{Mask\+State\+Change\+Operations }\end{DoxyParamCaption})}
+
+
+
+Передача пакетов из таблицы данных в интерфейс 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Interface} & -\/ Указатель на структуру, хранящую дата тейбл, таймеры таймаута. \\
+\hline
+{\em Current\+Tick\+Count} & -\/ Текущее значение системного таймера \\
+\hline
+{\em Mask\+State\+Change\+Operations} & -\/ Маска состояний изменений \\
+\hline
+\end{DoxyParams}

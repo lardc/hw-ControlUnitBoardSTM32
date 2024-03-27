@@ -63,7 +63,8 @@ $(function(){initNavTree('_b_c_c_i_master_8c.html',''); initResizable(); });
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">BCCIMaster.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -83,13 +84,19 @@ Functions</h2></td></tr>
 <tr class="memdesc:a7928af9aba4fde96bba48b2a1fbf84fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправка CAN сообщения.  <br /></td></tr>
 <tr class="separator:a7928af9aba4fde96bba48b2a1fbf84fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c9b9172bd08449a92cbd7a4662d4244" id="r_a0c9b9172bd08449a92cbd7a4662d4244"><td class="memItemLeft" align="right" valign="top">Int16U&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c9b9172bd08449a92cbd7a4662d4244">BCCIM_WaitResponse</a> (pBCCIM_Interface Interface, Int16U Mailbox)</td></tr>
-<tr class="memdesc:a0c9b9172bd08449a92cbd7a4662d4244"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ожидание ответа от узла, полученного по мейлбоксу Mailbox.  <br /></td></tr>
+<tr class="memdesc:a0c9b9172bd08449a92cbd7a4662d4244"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверка MBOX_ERR_A на то, пришла ли в него ошибка.  <br /></td></tr>
 <tr class="separator:a0c9b9172bd08449a92cbd7a4662d4244"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ca88ebf4d143ee547dfbe9690020f70" id="r_a6ca88ebf4d143ee547dfbe9690020f70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ca88ebf4d143ee547dfbe9690020f70">BCCIM_ReadBlock16Subfunction</a> (pBCCIM_Interface Interface, Int16U Node, Int16U Endpoint, Boolean Start)</td></tr>
+<tr class="memdesc:a6ca88ebf4d143ee547dfbe9690020f70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение блока(массива) данных из узла в CAN сети.  <br /></td></tr>
+<tr class="separator:a6ca88ebf4d143ee547dfbe9690020f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e1b6ea80e464888929d2f2a0d0a6cf9" id="r_a3e1b6ea80e464888929d2f2a0d0a6cf9"><td class="memItemLeft" align="right" valign="top">Boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e1b6ea80e464888929d2f2a0d0a6cf9">BCCIM_HandleReadBlock16</a> (pBCCIM_Interface Interface)</td></tr>
-<tr class="memdesc:a3e1b6ea80e464888929d2f2a0d0a6cf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обработка получения блока данных из CAN сети.  <br /></td></tr>
+<tr class="memdesc:a3e1b6ea80e464888929d2f2a0d0a6cf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обработка получения блока(массива) данных из CAN сети.  <br /></td></tr>
 <tr class="separator:a3e1b6ea80e464888929d2f2a0d0a6cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a793daec7fed48679248c9e89110d9ab0" id="r_a793daec7fed48679248c9e89110d9ab0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a793daec7fed48679248c9e89110d9ab0">BCCIM_ReadBlockFloatSubfunction</a> (pBCCIM_Interface Interface, Int16U Node, Int16U Endpoint, Boolean Start)</td></tr>
+<tr class="memdesc:a793daec7fed48679248c9e89110d9ab0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Дополнительная функция Чтения блока(массива) данных типа float из узла в CAN сети.  <br /></td></tr>
+<tr class="separator:a793daec7fed48679248c9e89110d9ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d31d45247650bc06699ec28dc7f58fa" id="r_a9d31d45247650bc06699ec28dc7f58fa"><td class="memItemLeft" align="right" valign="top">Boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d31d45247650bc06699ec28dc7f58fa">BCCIM_HandleReadBlockFloat</a> (pBCCIM_Interface Interface)</td></tr>
-<tr class="memdesc:a9d31d45247650bc06699ec28dc7f58fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обработка получения блока(массива) данных с значениями типа float из CAN сети.  <br /></td></tr>
+<tr class="memdesc:a9d31d45247650bc06699ec28dc7f58fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обработка получения блока(массива) данных типа float из CAN сети.  <br /></td></tr>
 <tr class="separator:a9d31d45247650bc06699ec28dc7f58fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfecdcedc5040e4936963a6becb60d09" id="r_adfecdcedc5040e4936963a6becb60d09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfecdcedc5040e4936963a6becb60d09">BCCIM_Init</a> (pBCCIM_Interface Interface, pBCCI_IOConfig IOConfig, Int32U MessageTimeoutTicks, volatile Int64U *pTimer)</td></tr>
 <tr class="memdesc:adfecdcedc5040e4936963a6becb60d09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация Master BCCI интерфейса - сетап Mailbox для записи и чтения, запись Mailbox в IOConfig.  <br /></td></tr>
@@ -124,6 +131,25 @@ Functions</h2></td></tr>
 <tr class="memitem:aa01eaa7aae3ec2b1f9208ae8205a95d8" id="r_aa01eaa7aae3ec2b1f9208ae8205a95d8"><td class="memItemLeft" align="right" valign="top">Int16U&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa01eaa7aae3ec2b1f9208ae8205a95d8">BCCIM_ReadBlockFloat</a> (pBCCIM_Interface Interface, Int16U Node, Int16U Endpoint)</td></tr>
 <tr class="memdesc:aa01eaa7aae3ec2b1f9208ae8205a95d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение блока(массива) данных со значениями типа данных float из регистра узла в CAN сети.  <br /></td></tr>
 <tr class="separator:aa01eaa7aae3ec2b1f9208ae8205a95d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab43727633d067a6f818e74e89ee550d3" id="r_ab43727633d067a6f818e74e89ee550d3"><td class="memItemLeft" align="right" valign="top"><a id="ab43727633d067a6f818e74e89ee550d3" name="ab43727633d067a6f818e74e89ee550d3"></a>
+Int16U&#160;</td><td class="memItemRight" valign="bottom"><b>BCCIM_GetSavedErrorDetails</b> ()</td></tr>
+<tr class="memdesc:ab43727633d067a6f818e74e89ee550d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает сохраненную информацию об ошибке чтения или записи <br /></td></tr>
+<tr class="separator:ab43727633d067a6f818e74e89ee550d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:af8964f005dd6034bee4202b77688bf0e" id="r_af8964f005dd6034bee4202b77688bf0e"><td class="memItemLeft" align="right" valign="top"><a id="af8964f005dd6034bee4202b77688bf0e" name="af8964f005dd6034bee4202b77688bf0e"></a>
+Int16U&#160;</td><td class="memItemRight" valign="bottom"><b>BCCIM_ReadBlockBufferCounter</b></td></tr>
+<tr class="memdesc:af8964f005dd6034bee4202b77688bf0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Переменная для хранения размера блока(массива) данных. <br /></td></tr>
+<tr class="separator:af8964f005dd6034bee4202b77688bf0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12db6b763478b1f51df6f799565d1147" id="r_a12db6b763478b1f51df6f799565d1147"><td class="memItemLeft" align="right" valign="top"><a id="a12db6b763478b1f51df6f799565d1147" name="a12db6b763478b1f51df6f799565d1147"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>BCCIM_ReadBlockFloatBuffer</b> [5000]</td></tr>
+<tr class="memdesc:a12db6b763478b1f51df6f799565d1147"><td class="mdescLeft">&#160;</td><td class="mdescRight">Переменная для хранения блока(массива) данных типа float. <br /></td></tr>
+<tr class="separator:a12db6b763478b1f51df6f799565d1147"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9483918af0600b4cf231e6f84c48c9f8" id="r_a9483918af0600b4cf231e6f84c48c9f8"><td class="memItemLeft" align="right" valign="top"><a id="a9483918af0600b4cf231e6f84c48c9f8" name="a9483918af0600b4cf231e6f84c48c9f8"></a>
+pInt16U&#160;</td><td class="memItemRight" valign="bottom"><b>BCCIM_ReadBlock16Buffer</b> = (pInt16U)<a class="el" href="#a12db6b763478b1f51df6f799565d1147">BCCIM_ReadBlockFloatBuffer</a></td></tr>
+<tr class="memdesc:a9483918af0600b4cf231e6f84c48c9f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Переменная для хранения блока(массива) данных. <br /></td></tr>
+<tr class="separator:a9483918af0600b4cf231e6f84c48c9f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Бибиблиотека интерфейса Master BCCI. </p>
@@ -180,14 +206,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Обработка получения блока данных из CAN сети. </p>
+<p>Обработка получения блока(массива) данных из CAN сети. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Interface</td><td>- Указатель на структуру, хранящую параметры CAN-интерфейса (таймаут и функции обратного вызова). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>TRUE, если блок данных получен, FALSE в противном случае. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>TRUE, если данные читаются впервые, FALSE в противном случае. </dd></dl>
 
 </div>
 </div>
@@ -206,7 +232,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Обработка получения блока(массива) данных с значениями типа float из CAN сети. </p>
+<p>Обработка получения блока(массива) данных типа float из CAN сети. </p>
+<p>Обработка получения блока(массива) данных с значениями типа float из CAN сети.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Interface</td><td>- Указатель на структуру, хранящую параметры CAN-интерфейса (таймаут и функции обратного вызова). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>TRUE, если данные читаются впервые, FALSE в противном случае.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Interface</td><td>- Указатель на структуру, хранящую параметры CAN-интерфейса (таймаут и функции обратного вызова). </td></tr>
@@ -387,6 +421,48 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a6ca88ebf4d143ee547dfbe9690020f70" name="a6ca88ebf4d143ee547dfbe9690020f70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ca88ebf4d143ee547dfbe9690020f70">&#9670;&#160;</a></span>BCCIM_ReadBlock16Subfunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BCCIM_ReadBlock16Subfunction </td>
+          <td>(</td>
+          <td class="paramtype">pBCCIM_Interface</td>          <td class="paramname"><span class="paramname"><em>Interface</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int16U</td>          <td class="paramname"><span class="paramname"><em>Node</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int16U</td>          <td class="paramname"><span class="paramname"><em>Endpoint</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Boolean</td>          <td class="paramname"><span class="paramname"><em>Start</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Чтение блока(массива) данных из узла в CAN сети. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Interface</td><td>- Указатель на структуру, хранящую параметры CAN-интерфейса (таймаут и функции обратного вызова). </td></tr>
+    <tr><td class="paramname">Node</td><td>- ID узла в CAN сети </td></tr>
+    <tr><td class="paramname">Endpoint</td><td>- Регистр начала массива </td></tr>
+    <tr><td class="paramname">Start</td><td>- Флаг первого вызова функции </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aa01eaa7aae3ec2b1f9208ae8205a95d8" name="aa01eaa7aae3ec2b1f9208ae8205a95d8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa01eaa7aae3ec2b1f9208ae8205a95d8">&#9670;&#160;</a></span>BCCIM_ReadBlockFloat()</h2>
 
@@ -421,6 +497,48 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>ERR_NO_ERROR или ERR_TIMEOUT, если произошла ошибка таймаута. </dd></dl>
+
+</div>
+</div>
+<a id="a793daec7fed48679248c9e89110d9ab0" name="a793daec7fed48679248c9e89110d9ab0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a793daec7fed48679248c9e89110d9ab0">&#9670;&#160;</a></span>BCCIM_ReadBlockFloatSubfunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BCCIM_ReadBlockFloatSubfunction </td>
+          <td>(</td>
+          <td class="paramtype">pBCCIM_Interface</td>          <td class="paramname"><span class="paramname"><em>Interface</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int16U</td>          <td class="paramname"><span class="paramname"><em>Node</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Int16U</td>          <td class="paramname"><span class="paramname"><em>Endpoint</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Boolean</td>          <td class="paramname"><span class="paramname"><em>Start</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Дополнительная функция Чтения блока(массива) данных типа float из узла в CAN сети. </p>
+<p>При первом чтенич данных (Start = true): Происходит очистка мейлбоксов и сохранение endpoint. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Interface</td><td>- Указатель на структуру, хранящую параметры CAN-интерфейса (таймаут и функции обратного вызова). </td></tr>
+    <tr><td class="paramname">Node</td><td>- ID узла в CAN сети </td></tr>
+    <tr><td class="paramname">Endpoint</td><td>- Регистр начала массива </td></tr>
+    <tr><td class="paramname">Start</td><td>- Флаг первого вызова функции </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -577,7 +695,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Ожидание ответа от узла, полученного по мейлбоксу Mailbox. </p>
+<p>Проверка MBOX_ERR_A на то, пришла ли в него ошибка. </p>
+<p>Ожидание ответа от узла, полученного по мейлбоксу Mailbox.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Interface</td><td>- Указатель на структуру, хранящую параметры CAN-интерфейса (таймаут и функции обратного вызова). </td></tr>
+    <tr><td class="paramname">Mailbox</td><td>- ID мейлбокса внутри узла в котором будет ожидаться ответ. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ERR_NO_ERROR, если ответ получен, иначе ERR_TIMEOUT.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Interface</td><td>- Указатель на структуру, хранящую параметры CAN-интерфейса (таймаут и функции обратного вызова). </td></tr>

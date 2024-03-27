@@ -2,6 +2,7 @@ var _b_c_c_i_master_8h =
 [
     [ "pBCCIM_Interface", "struct_b_c_c_i_m___interface.html", "struct_b_c_c_i_m___interface" ],
     [ "BCCIM_Call", "_b_c_c_i_master_8h.html#a2b59f4fb4c7f5aa85b68963850b063d8", null ],
+    [ "BCCIM_GetSavedErrorDetails", "_b_c_c_i_master_8h.html#ab43727633d067a6f818e74e89ee550d3", null ],
     [ "BCCIM_Init", "_b_c_c_i_master_8h.html#adfecdcedc5040e4936963a6becb60d09", null ],
     [ "BCCIM_InitWithNodeID", "_b_c_c_i_master_8h.html#a2ddb5f7220206027b6a1aee0b4ab62dc", null ],
     [ "BCCIM_Read16", "_b_c_c_i_master_8h.html#af7e36b242718670c99ed62cb8b05e436", null ],
@@ -12,5 +13,8 @@ var _b_c_c_i_master_8h =
     [ "BCCIM_Write16", "_b_c_c_i_master_8h.html#a971e1f5a093bcbc044dd241d0a3d229d", null ],
     [ "BCCIM_WriteBlock16", "_b_c_c_i_master_8h.html#a31af771d1e19aee4c60315b539b2f4aa", null ],
     [ "BCCIM_WriteBlockFloat", "_b_c_c_i_master_8h.html#a7d7ef3da1bd300d760d417a664823250", null ],
-    [ "BCCIM_WriteFloat", "_b_c_c_i_master_8h.html#ad360184a22152999091e8c955f9aacd3", null ]
+    [ "BCCIM_WriteFloat", "_b_c_c_i_master_8h.html#ad360184a22152999091e8c955f9aacd3", null ],
+    [ "BCCIM_ReadBlock16Buffer", "_b_c_c_i_master_8h.html#a9483918af0600b4cf231e6f84c48c9f8", null ],
+    [ "BCCIM_ReadBlockBufferCounter", "_b_c_c_i_master_8h.html#af8964f005dd6034bee4202b77688bf0e", null ],
+    [ "BCCIM_ReadBlockFloatBuffer", "_b_c_c_i_master_8h.html#a747ebe327e996dbb7fc86604514ad8ec", null ]
 ];

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>ControlUnitBoard_bootloader</name>
+	<name>ControlUnitBoardSTM32_bootloader</name>
 	<comment></comment>
 	<projects>
 	</projects>

@@ -30,11 +30,20 @@ void LL_LampRed(bool State)
 }
 //-----------------------------
 
-void LL_SwitchPC()
+void LL_SwitchPC(bool IgnoreFlag)
 {
-	GPIO_SetState(GPIO_PC_SWITCH, true);
-	DELAY_US(500000);
-	GPIO_SetState(GPIO_PC_SWITCH, false);
+	pInt16U TurnFlagPointer = (pInt16U)0x10000000;
+	const Int16U TurnFlagValue = 0xA5A5;
+
+	// Включение ПК только при отсутствии выставленного в памяти флага
+	if(IgnoreFlag || TurnFlagValue != *TurnFlagPointer)
+	{
+		*TurnFlagPointer = TurnFlagValue;
+
+		GPIO_SetState(GPIO_PC_SWITCH, true);
+		DELAY_US(500000);
+		GPIO_SetState(GPIO_PC_SWITCH, false);
+	}
 }
 //-----------------------------
 

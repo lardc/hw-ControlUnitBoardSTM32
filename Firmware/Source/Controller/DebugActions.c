@@ -34,6 +34,6 @@ void DBGACT_LampRed()
 
 void DBGACT_SwitchPC()
 {
-	LL_SwitchPC();
+	LL_SwitchPC(true);
 }
 //-----------------------------------------------

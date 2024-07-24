@@ -31,7 +31,7 @@ int main()
 	CONTROL_Init();
 	
 	// включение ПК
-	LL_SwitchPC();
+	LL_SwitchPC(false);
 
 	// Фоновый цикл
 	while(TRUE)

@@ -9,7 +9,7 @@ void LL_ToggleBoardLED();
 void LL_Fan(bool State);
 void LL_LampGreen(bool State);
 void LL_LampRed(bool State);
-void LL_SwitchPC();
+void LL_SwitchPC(bool IgnoreFlag);
 bool LL_ExternalButton();
 
 #endif //__LOWLEVEL_H

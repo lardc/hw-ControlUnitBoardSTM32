@@ -88,6 +88,8 @@ Boolean CONTROL_DispatchAction(Int16U ActionID, pInt16U UserError)
 			break;
 
 		case ACT_BROADCAST_PING:
+			DEVPROFILE_ResetScopes(0);
+			DEVPROFILE_ResetEPReadState();
 			BCCIM_SendBroadcastPing(&MASTER_DEVICE_CAN_Interface, CONTROL_CAN_Nodes, (pInt16U)&CONTROL_CAN_Nodes_Counter);
 			break;
 

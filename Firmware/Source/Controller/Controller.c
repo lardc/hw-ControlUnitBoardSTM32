@@ -19,6 +19,9 @@
 // Variables
 volatile Int64U CONTROL_TimeCounter = 0;
 Boolean CycleActive = false;
+//
+Int16U CONTROL_CAN_Nodes[MAX_NODE_COUNT] = {0};
+volatile Int16U CONTROL_CAN_Nodes_Counter = 0;
 
 // Forward functions
 Boolean CONTROL_DispatchAction(Int16U ActionID, pInt16U UserError);
@@ -29,6 +32,11 @@ void CONTROL_Init();
 // Functions
 void CONTROL_Init()
 {
+	Int16U EPIndexes[EP_COUNT] = {EP16_CAN_Nodes};
+	Int16U EPSized[EP_COUNT] = {MAX_NODE_COUNT};
+	pInt16U EPCounters[EP_COUNT] = {(pInt16U)&CONTROL_CAN_Nodes_Counter};
+	pInt16U EPDatas[EP_COUNT] = {CONTROL_CAN_Nodes};
+
 	// Init data table
 	EPROMServiceConfig EPROMService = {(FUNC_EPROM_WriteValues)&NFLASH_WriteDT, (FUNC_EPROM_ReadValues)&NFLASH_ReadDT};
 	DT_Init(EPROMService, false);
@@ -36,6 +44,7 @@ void CONTROL_Init()
 	
 	// Device profile initialization
 	DEVPROFILE_Init(&CONTROL_DispatchAction, &CycleActive);
+	DEVPROFILE_InitEPService(EPIndexes, EPSized, EPCounters, EPDatas);
 	DEVPROFILE_ResetControlSection();
 	DataTable[REG_MME_CODE] = MME_CODE;
 }
@@ -76,6 +85,12 @@ Boolean CONTROL_DispatchAction(Int16U ActionID, pInt16U UserError)
 
 		case ACT_DIAG_PC_SWITCH:
 			DBGACT_SwitchPC();
+			break;
+
+		case ACT_BROADCAST_PING:
+			DEVPROFILE_ResetScopes(0);
+			DEVPROFILE_ResetEPReadState();
+			BCCIM_SendBroadcastPing(&MASTER_DEVICE_CAN_Interface, CONTROL_CAN_Nodes, (pInt16U)&CONTROL_CAN_Nodes_Counter);
 			break;
 
 		default:

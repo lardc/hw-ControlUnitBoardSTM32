@@ -52,7 +52,7 @@ BCCIM_Interface MASTER_DEVICE_CAN_Interface;
 static SCCI_IOConfig USB_UART1_IOConfig, USB_UART2_IOConfig;
 static BCCI_IOConfig CAN_IOConfig;
 static xCCI_ServiceConfig X_ServiceConfig;
-static EPStates DummyEPState, USB_UART1_EPState, USB_UART2_EPState, CAN_EPState;
+static EPStates USB_UART1_EPState, USB_UART2_EPState, CAN_EPState;
 static xCCI_FUNC_CallbackAction ControllerDispatchFunction;
 //
 static Boolean* MaskChangesFlag;
@@ -96,10 +96,10 @@ void DEVPROFILE_Init(xCCI_FUNC_CallbackAction SpecializedDispatch, Boolean* Mask
 	
 	// Init interface driver
 	SCCI_Init(&DEVICE_USB_UART1_Interface, &USB_UART1_IOConfig, &X_ServiceConfig, (pInt16U)DataTable, DATA_TABLE_SIZE,
-			xCCI_TIMEOUT_TICKS, &DummyEPState);
+			xCCI_TIMEOUT_TICKS, &USB_UART1_EPState);
 	SCCI_Init(&DEVICE_USB_UART2_Interface, &USB_UART2_IOConfig, &X_ServiceConfig, (pInt16U)DataTable, DATA_TABLE_SIZE,
-			xCCI_TIMEOUT_TICKS, &DummyEPState);
-	BCCI_Init(&DEVICE_CAN_Interface, &CAN_IOConfig, &X_ServiceConfig, (pInt16U)DataTable, DATA_TABLE_SIZE, &DummyEPState);
+			xCCI_TIMEOUT_TICKS, &USB_UART2_EPState);
+	BCCI_Init(&DEVICE_CAN_Interface, &CAN_IOConfig, &X_ServiceConfig, (pInt16U)DataTable, DATA_TABLE_SIZE, &CAN_EPState);
 	BCCIM_Init(&MASTER_DEVICE_CAN_Interface, &CAN_IOConfig, xCCI_TIMEOUT_TICKS, &CONTROL_TimeCounter);
 
 	// Set write protection

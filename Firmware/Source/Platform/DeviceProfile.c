@@ -52,7 +52,7 @@ BCCIM_Interface MASTER_DEVICE_CAN_Interface;
 static SCCI_IOConfig USB_UART1_IOConfig, USB_UART2_IOConfig;
 static BCCI_IOConfig CAN_IOConfig;
 static xCCI_ServiceConfig X_ServiceConfig;
-static EPStates DummyEPState;
+static EPStates USB_UART1_EPState, USB_UART2_EPState, CAN_EPState;
 static xCCI_FUNC_CallbackAction ControllerDispatchFunction;
 //
 static Boolean* MaskChangesFlag;
@@ -96,16 +96,83 @@ void DEVPROFILE_Init(xCCI_FUNC_CallbackAction SpecializedDispatch, Boolean* Mask
 	
 	// Init interface driver
 	SCCI_Init(&DEVICE_USB_UART1_Interface, &USB_UART1_IOConfig, &X_ServiceConfig, (pInt16U)DataTable, DATA_TABLE_SIZE,
-			xCCI_TIMEOUT_TICKS, &DummyEPState);
+			xCCI_TIMEOUT_TICKS, &USB_UART1_EPState);
 	SCCI_Init(&DEVICE_USB_UART2_Interface, &USB_UART2_IOConfig, &X_ServiceConfig, (pInt16U)DataTable, DATA_TABLE_SIZE,
-			xCCI_TIMEOUT_TICKS, &DummyEPState);
-	BCCI_Init(&DEVICE_CAN_Interface, &CAN_IOConfig, &X_ServiceConfig, (pInt16U)DataTable, DATA_TABLE_SIZE, &DummyEPState);
+			xCCI_TIMEOUT_TICKS, &USB_UART2_EPState);
+	BCCI_Init(&DEVICE_CAN_Interface, &CAN_IOConfig, &X_ServiceConfig, (pInt16U)DataTable, DATA_TABLE_SIZE, &CAN_EPState);
 	BCCIM_Init(&MASTER_DEVICE_CAN_Interface, &CAN_IOConfig, xCCI_TIMEOUT_TICKS, &CONTROL_TimeCounter);
 
 	// Set write protection
 	SCCI_AddProtectedArea(&DEVICE_USB_UART1_Interface, DATA_TABLE_WP_START, DATA_TABLE_SIZE - 1);
 	SCCI_AddProtectedArea(&DEVICE_USB_UART2_Interface, DATA_TABLE_WP_START, DATA_TABLE_SIZE - 1);
 	BCCI_AddProtectedArea(&DEVICE_CAN_Interface, DATA_TABLE_WP_START, DATA_TABLE_SIZE - 1);
+}
+// ----------------------------------------
+
+void DEVPROFILE_InitEPService(pInt16U Indexes, pInt16U Sizes, pInt16U* Counters, pInt16U* Datas)
+{
+	Int16U i;
+
+	for(i = 0; i < EP_COUNT; ++i)
+	{
+		USB_UART1_EPState.EPs[i].Size = Sizes[i];
+		USB_UART1_EPState.EPs[i].pDataCounter = Counters[i];
+		USB_UART1_EPState.EPs[i].Data = Datas[i];
+
+		USB_UART2_EPState.EPs[i].Size = Sizes[i];
+		USB_UART2_EPState.EPs[i].pDataCounter = Counters[i];
+		USB_UART2_EPState.EPs[i].Data = Datas[i];
+
+		CAN_EPState.EPs[i].Size = Sizes[i];
+		CAN_EPState.EPs[i].pDataCounter = Counters[i];
+		CAN_EPState.EPs[i].Data = Datas[i];
+
+		USB_UART1_EPState.EPs[i].ReadCounter = USB_UART1_EPState.EPs[i].LastReadCounter = 0;
+		USB_UART2_EPState.EPs[i].ReadCounter = USB_UART2_EPState.EPs[i].LastReadCounter = 0;
+		CAN_EPState.EPs[i].ReadCounter = CAN_EPState.EPs[i].LastReadCounter = 0;
+
+		SCCI_RegisterReadEndpoint16(&DEVICE_USB_UART1_Interface, Indexes[i], &DEVPROFILE_CallbackReadX);
+		SCCI_RegisterReadEndpoint16(&DEVICE_USB_UART2_Interface, Indexes[i], &DEVPROFILE_CallbackReadX);
+		BCCI_RegisterReadEndpoint16(&DEVICE_CAN_Interface, Indexes[i], &DEVPROFILE_CallbackReadX);
+	}
+}
+// ----------------------------------------
+
+Int16U DEVPROFILE_CallbackReadX(Int16U Endpoint, pInt16U* Buffer, Boolean Streamed, Boolean RepeatLastTransmission,
+		void* EPStateAddress, Int16U MaxNonStreamSize)
+{
+	Int16U pLen;
+	pEPState epState;
+	pEPStates epStates = (pEPStates)EPStateAddress;
+
+	// Validate pointer
+	if(!epStates)
+		return 0;
+
+	// Get endpoint
+	epState = &epStates->EPs[Endpoint - 1];
+
+	// Handle transmission repeat
+	if(RepeatLastTransmission)
+		epState->ReadCounter = epState->LastReadCounter;
+
+	// Write possible content reference
+	*Buffer = epState->Data + epState->ReadCounter;
+
+	// Calculate content length
+	if(*(epState->pDataCounter) < epState->ReadCounter)
+		pLen = 0;
+	else
+		pLen = *(epState->pDataCounter) - epState->ReadCounter;
+
+	if(!Streamed)
+		pLen = (pLen > MaxNonStreamSize) ? MaxNonStreamSize : pLen;
+
+	// Update content state
+	epState->LastReadCounter = epState->ReadCounter;
+	epState->ReadCounter += pLen;
+
+	return pLen;
 }
 // ----------------------------------------
 
@@ -117,6 +184,60 @@ void DEVPROFILE_ProcessRequests()
 
 	// Handle interface requests
 	BCCI_Process(&DEVICE_CAN_Interface, *MaskChangesFlag);
+}
+// ----------------------------------------
+
+void DEVPROFILE_ResetEPReadState()
+{
+	Int16U i;
+
+	for(i = 0; i < EP_COUNT; ++i)
+	{
+		USB_UART1_EPState.EPs[i].ReadCounter = 0;
+		USB_UART2_EPState.EPs[i].ReadCounter = 0;
+		CAN_EPState.EPs[i].ReadCounter = 0;
+		USB_UART1_EPState.EPs[i].LastReadCounter = 0;
+		USB_UART2_EPState.EPs[i].LastReadCounter = 0;
+		CAN_EPState.EPs[i].LastReadCounter = 0;
+	}
+
+	for(i = 0; i < FEP_COUNT; ++i)
+	{
+		USB_UART1_EPState.FEPs[i].ReadCounter = 0;
+		USB_UART2_EPState.FEPs[i].ReadCounter = 0;
+		CAN_EPState.FEPs[i].ReadCounter = 0;
+		USB_UART1_EPState.FEPs[i].LastReadCounter = 0;
+		USB_UART2_EPState.FEPs[i].LastReadCounter = 0;
+		CAN_EPState.FEPs[i].LastReadCounter = 0;
+	}
+}
+// ----------------------------------------
+
+void DEVPROFILE_ResetScopes(Int16U ResetPosition)
+{
+	Int16U i;
+
+	for(i = 0; i < EP_COUNT; ++i)
+	{
+		*(USB_UART1_EPState.EPs[i].pDataCounter) = ResetPosition;
+		*(USB_UART2_EPState.EPs[i].pDataCounter) = ResetPosition;
+		*(CAN_EPState.EPs[i].pDataCounter) = ResetPosition;
+
+		MemZero16(USB_UART1_EPState.EPs[i].Data, USB_UART1_EPState.EPs[i].Size);
+		MemZero16(USB_UART2_EPState.EPs[i].Data, USB_UART2_EPState.EPs[i].Size);
+		MemZero16(CAN_EPState.EPs[i].Data, CAN_EPState.EPs[i].Size);
+	}
+
+	for(i = 0; i < FEP_COUNT; ++i)
+	{
+		*(USB_UART1_EPState.FEPs[i].pDataCounter) = ResetPosition;
+		*(USB_UART2_EPState.FEPs[i].pDataCounter) = ResetPosition;
+		*(CAN_EPState.FEPs[i].pDataCounter) = ResetPosition;
+
+		MemZero16((pInt16U)USB_UART1_EPState.FEPs[i].Data, USB_UART1_EPState.FEPs[i].Size * 2);
+		MemZero16((pInt16U)USB_UART2_EPState.FEPs[i].Data, USB_UART2_EPState.FEPs[i].Size * 2);
+		MemZero16((pInt16U)CAN_EPState.FEPs[i].Data, CAN_EPState.FEPs[i].Size * 2);
+	}
 }
 // ----------------------------------------
 

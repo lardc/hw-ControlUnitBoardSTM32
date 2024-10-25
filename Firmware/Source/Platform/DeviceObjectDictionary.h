@@ -11,6 +11,8 @@
 #define ACT_DIAG_RED_LED			12	///< Проверка красного индикатора
 #define ACT_DIAG_PC_SWITCH			13	///< Включение ПК
 //
+#define ACT_BROADCAST_PING			100	///< Отправка широковещательного запроса в CAN сеть
+#define ACT_SAVE_TO_ROM				200	///< Save parameters to EEPROM module
 #define ACT_SAVE_TO_ROM				200	///< Сохранение пользовательских данных во FLASH процессора
 #define ACT_RESTORE_FROM_ROM		201	///< Восстановление данных из FLASH
 #define ACT_RESET_TO_DEFAULT		202	///< Сброс DataTable в состояние по умолчанию
@@ -43,5 +45,9 @@
 //
 #define REG_FWINFO_STR_LEN			260	///< Length of the information string record
 #define REG_FWINFO_STR_BEGIN		261	///< Begining of the information string record
+
+// ENDPOINTS
+//
+#define EP16_CAN_Nodes				1
 
 #endif // __DEV_OBJ_DIC_H
